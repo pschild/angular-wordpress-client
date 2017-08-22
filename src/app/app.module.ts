@@ -6,13 +6,15 @@ import {AppComponent} from './app.component';
 import {PageComponent} from "./page/page.component";
 import {GalleryComponent} from "./fragments/gallery/gallery.component";
 import {HeadlineComponent} from "./fragments/headline/headline.component";
+import {NavigationComponent} from "./navigation/navigation.component";
 
 @NgModule({
     declarations: [
         AppComponent,
         PageComponent,
         GalleryComponent,
-        HeadlineComponent
+        HeadlineComponent,
+        NavigationComponent
     ],
     imports: [
         BrowserModule,
