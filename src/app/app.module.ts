@@ -7,6 +7,9 @@ import {PageComponent} from "./page/page.component";
 import {GalleryComponent} from "./fragments/gallery/gallery.component";
 import {HeadlineComponent} from "./fragments/headline/headline.component";
 import {NavigationComponent} from "./navigation/navigation.component";
+import {NavigationService} from "./navigation/navigation.service";
+import {HttpModule} from "@angular/http";
+import {NavigationTreeComponent} from "./navigation/navigation-tree/navigation-tree.component";
 
 @NgModule({
     declarations: [
@@ -14,13 +17,17 @@ import {NavigationComponent} from "./navigation/navigation.component";
         PageComponent,
         GalleryComponent,
         HeadlineComponent,
-        NavigationComponent
+        NavigationComponent,
+        NavigationTreeComponent
     ],
     imports: [
         BrowserModule,
-        AppRoutingModule
+        AppRoutingModule,
+        HttpModule
     ],
-    providers: [],
+    providers: [
+        NavigationService
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {

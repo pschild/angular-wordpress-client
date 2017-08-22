@@ -1,0 +1,8 @@
+<ul>
+    <li *ngFor="let item of items">
+        {{item.title}}
+        <div *ngIf="item.children">
+            <app-navigation-tree [items]="item.children"></app-navigation-tree>
+        </div>
+    </li>
+</ul>

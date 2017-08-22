@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {NavigationService} from "./navigation.service";
+import {Observable} from "rxjs/Observable";
 
 @Component({
     selector: 'app-navigation',
@@ -7,10 +9,13 @@ import {Component, OnInit} from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
-    constructor() {
+    navigationStructure$: Observable<any>;
+
+    constructor(private navigationService: NavigationService) {
     }
 
     ngOnInit() {
+        this.navigationStructure$ = this.navigationService.loadNavigation().map(res => res.items);
     }
 
 }
