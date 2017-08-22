@@ -1,3 +1,6 @@
-<p>
-    gallery works!
+<p *ngIf="!items || !items.length">
+    Keine Bilder in dieser Galerie vorhanden.
 </p>
+<div class="grid" *ngIf="items && items.length">
+    <img src="{{item.guid}}" *ngFor="let item of items"/>
+</div>
