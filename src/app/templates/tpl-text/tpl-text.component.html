@@ -1,2 +1,2 @@
 <h1>{{pageData.title.rendered}}</h1>
-{{pageData.acf.content}}
+<p [innerHtml]="pageData.acf.content | safeHtml"></p>
