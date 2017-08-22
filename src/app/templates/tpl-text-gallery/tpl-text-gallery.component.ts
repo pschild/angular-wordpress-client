@@ -2,7 +2,10 @@ import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
     selector: 'app-tpl-text-gallery',
-    templateUrl: './tpl-text-gallery.component.html',
+    template: `
+        <p [innerHtml]="pageData.acf.content | safeHtml"></p>
+        <app-gallery></app-gallery>
+    `,
     styleUrls: ['./tpl-text-gallery.component.scss']
 })
 export class TplTextGalleryComponent implements OnInit {
