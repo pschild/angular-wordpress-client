@@ -1,20 +1,20 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {HeadlineComponent} from './headline.component';
+import {TplTextComponent} from './tpl-text.component';
 
-describe('HeadlineComponent', () => {
-    let component: HeadlineComponent;
-    let fixture: ComponentFixture<HeadlineComponent>;
+describe('TplTextComponent', () => {
+    let component: TplTextComponent;
+    let fixture: ComponentFixture<TplTextComponent>;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [HeadlineComponent]
+            declarations: [TplTextComponent]
         })
             .compileComponents();
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(HeadlineComponent);
+        fixture = TestBed.createComponent(TplTextComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });

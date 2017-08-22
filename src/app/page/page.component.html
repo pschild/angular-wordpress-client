@@ -1,4 +1,7 @@
-<p>
-    page works!
-</p>
-<router-outlet></router-outlet>
+<div *ngIf="pageData$ | async; let pageData">
+    <div [ngSwitch]="pageData.template">
+        <app-tpl-text [pageData]="pageData" *ngSwitchCase="'template-content.php'"></app-tpl-text>
+        <app-tpl-gallery [pageData]="pageData" *ngSwitchCase="'template-gallery.php'"></app-tpl-gallery>
+        <app-tpl-text-gallery [pageData]="pageData" *ngSwitchCase="'template-content-gallery.php'"></app-tpl-text-gallery>
+    </div>
+</div>
