@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Location} from '@angular/common';
 
 @Component({
     selector: 'app-gallery',
@@ -10,10 +11,18 @@ export class GalleryComponent implements OnInit {
     @Input() items: Array<any> = [];
     @Input() activeItemId: number;
 
-    constructor() {
+    constructor(private location: Location) {
     }
 
     ngOnInit() {
+    }
+
+    handleChange() {
+        if (this.activeItemId < 0) {
+            this.location.go( this.location.path().substr(0, this.location.path().indexOf('gallery') - 1) );
+        } else {
+            this.location.go( `/fotografie/gallery/${this.activeItemId}` );
+        }
     }
 
     getNextItem(index: number) {

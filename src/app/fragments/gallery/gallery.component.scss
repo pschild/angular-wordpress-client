@@ -12,6 +12,7 @@
 .grid .grid-item {
   width: 100% !important;
   height: auto !important;
+  cursor: pointer;
 }
 
 @media (max-width: 1200px) {
@@ -46,8 +47,12 @@
   }
 }
 
-/* [Object] Modal
+/* Modal
  * =============================== */
+input[name=gallery-radios] {
+  display: none;
+}
+
 .modal {
   opacity: 0;
   visibility: hidden;
@@ -58,7 +63,7 @@
   left: 0;
   text-align: left;
   background: rgba(0,0,0, .9);
-  transition: opacity .25s ease;
+  //transition: opacity .25s ease;
 }
 
 .modal__bg {
@@ -84,7 +89,7 @@
 }
 
 .modal__inner {
-  transition: top .25s ease;
+  //transition: top .25s ease;
   position: absolute;
   top: -20%;
   right: 0;
@@ -112,34 +117,9 @@
 
 .modal__close {
   position: absolute;
-  right: 1em;
-  top: 1em;
-  width: 1.1em;
-  height: 1.1em;
+  right: 10px;
+  top: 10px;
   cursor: pointer;
-}
-
-.modal__close:after,
-.modal__close:before {
-  content: '';
-  position: absolute;
-  width: 2px;
-  height: 1.5em;
-  background: #ccc;
-  display: block;
-  transform: rotate(45deg);
-  left: 50%;
-  margin: -3px 0 0 -1px;
-  top: 0;
-}
-
-.modal__close:hover:after,
-.modal__close:hover:before {
-  background: #aaa;
-}
-
-.modal__close:before {
-  transform: rotate(-45deg);
 }
 
 .modal__next-btn, .modal__prev-btn {
