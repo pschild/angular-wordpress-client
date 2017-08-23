@@ -17,11 +17,19 @@ export class GalleryComponent implements OnInit {
     ngOnInit() {
     }
 
-    handleChange() {
-        if (this.activeItemId < 0) {
-            this.location.go( this.location.path().substr(0, this.location.path().indexOf('gallery') - 1) );
+    handleSelectionChange() {
+        // pulls "/anyBasePage" out of "/anyBasePage/gallery/<imageId>"
+        let basePath;
+        if (this.location.path().indexOf('gallery') >= 0) {
+            basePath = this.location.path().substr(0, this.location.path().indexOf('gallery') - 1);
         } else {
-            this.location.go( `/fotografie/gallery/${this.activeItemId}` );
+            basePath = this.location.path();
+        }
+
+        if (this.activeItemId < 0) {
+            this.location.go(basePath);
+        } else {
+            this.location.go(`${basePath}/gallery/${this.activeItemId}`);
         }
     }
 
