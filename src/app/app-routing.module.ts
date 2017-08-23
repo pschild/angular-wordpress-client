@@ -5,7 +5,9 @@ import {PageComponent} from "./page/page.component";
 
 const routes: Routes = [
     { path: '', redirectTo: '/ueber-mich', pathMatch: 'full' },
-    { path: ':shortTitle', component: PageComponent }
+    { path: ':shortTitle', component: PageComponent },
+    // { path: ':shortTitle/gallery', component: PageComponent },
+    { path: ':shortTitle/gallery/:imageId', component: PageComponent }
 ];
 
 @NgModule({

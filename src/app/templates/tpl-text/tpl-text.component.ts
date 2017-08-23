@@ -11,6 +11,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class TplTextComponent implements OnInit {
 
     @Input() pageData: any;
+    @Input() params: any;
 
     constructor() {
     }

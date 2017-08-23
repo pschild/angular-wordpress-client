@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {PageService} from "./page.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Params} from "@angular/router";
 import {Observable} from "rxjs/Observable";
 import {Subscription} from "rxjs/Subscription";
 
@@ -13,6 +13,8 @@ export class PageComponent implements OnInit, OnDestroy {
 
     pageData$: Observable<any>;
 
+    params: Params = null;
+
     private subscription: Subscription;
 
     constructor(private route: ActivatedRoute, private pageService: PageService) {
@@ -20,6 +22,7 @@ export class PageComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.subscription = this.route.params.subscribe(params => {
+            this.params = params;
             this.pageData$ = this.pageService.loadBySlug(params.shortTitle);
         });
     }
