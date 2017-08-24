@@ -1,11 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {MediaService} from "../../page/media.service";
-import {Observable} from "rxjs/Observable";
 
 @Component({
     selector: 'app-tpl-gallery',
     template: `
-        <app-gallery [items]="mediaData$ | async" [activeItemId]="params.imageId"></app-gallery>
+        <app-gallery [items]="items" [activeItemId]="params.imageId" (onLoadNextPage)="loadPage($event)"></app-gallery>
     `,
     styleUrls: ['./tpl-gallery.component.scss']
 })
@@ -14,13 +13,28 @@ export class TplGalleryComponent implements OnInit {
     @Input() pageData: any;
     @Input() params: any;
 
-    mediaData$: Observable<any>;
+    items: Array<any> = [];
 
     constructor(private mediaService: MediaService) {
     }
 
     ngOnInit() {
-        this.mediaData$ = this.mediaService.loadByIds(this.pageData.acf.gallery_images);
+        if (this.pageData.acf.gallery_images) {
+            this.mediaService.loadByIds(this.pageData.acf.gallery_images).subscribe(res => {
+                this.items = res;
+                if (this.params.imageId && this.items.map(item => item.id).indexOf(+this.params.imageId) < 0) {
+                    console.warn(`item #${this.params.imageId} is not yet loaded`);
+                }
+            });
+        }
+    }
+
+    loadPage(page) {
+        if (this.items.length < this.pageData.acf.gallery_images.length) {
+            this.mediaService.loadByIds(this.pageData.acf.gallery_images, page).subscribe(res => {
+                this.items = this.items.concat(res);
+            });
+        }
     }
 
 }

@@ -3,7 +3,7 @@
 </p>
 
 <input id="no-selection" type="radio" name="gallery-radios" value="-1" [(ngModel)]="activeItemId" (change)="handleSelectionChange()" />
-<div class="grid" *ngIf="items && items.length">
+<div class="grid" *ngIf="items && items.length" infinite-scroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="300" (scrolled)="loadNextPage()">
     <div *ngFor="let item of items; let i = index" class="grid-item-wrapper">
         <label for="image-{{item.id}}">
             <div class="grid-item" [ngStyle]="{'background-image': 'url(' + item.source_url + ')', 'background-position-x': item.acf['background-x'] + '%', 'background-position-y': item.acf['background-y'] + '%'}"></div>

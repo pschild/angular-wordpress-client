@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Location} from '@angular/common';
 
 @Component({
@@ -10,6 +10,9 @@ export class GalleryComponent implements OnInit {
 
     @Input() items: Array<any> = [];
     @Input() activeItemId: number;
+    @Output() onLoadNextPage: EventEmitter<any> = new EventEmitter();
+
+    private page = 1;
 
     constructor(private location: Location) {
     }
@@ -53,6 +56,11 @@ export class GalleryComponent implements OnInit {
         }
 
         return this.items[prevIndex];
+    }
+
+    loadNextPage() {
+        this.page++;
+        this.onLoadNextPage.emit(this.page);
     }
 
 }

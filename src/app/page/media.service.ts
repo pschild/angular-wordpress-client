@@ -4,11 +4,13 @@ import {Http} from "@angular/http";
 @Injectable()
 export class MediaService {
 
+    private itemsPerPage = 20;
+
     constructor(private http: Http) {
     }
 
-    loadByIds(ids: Array<number>) {
-        return this.http.get(`http://juliaunkrig.de/wp-json/wp/v2/media/?per_page=5&include=${ids.join(',')}`)
+    loadByIds(ids: Array<number>, page: number = 1) {
+        return this.http.get(`http://juliaunkrig.de/wp-json/wp/v2/media/?page=${page}&per_page=${this.itemsPerPage}&include=${ids.join(',')}`)
             .map(res => res.json());
     }
 
