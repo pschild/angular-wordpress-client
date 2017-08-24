@@ -1,11 +1,12 @@
 <p *ngIf="!items || !items.length">
     Keine Bilder in dieser Galerie vorhanden.
 </p>
+
 <input id="no-selection" type="radio" name="gallery-radios" value="-1" [(ngModel)]="activeItemId" (change)="handleSelectionChange()" />
 <div class="grid" *ngIf="items && items.length">
-    <div *ngFor="let item of items; let i = index">
+    <div *ngFor="let item of items; let i = index" class="grid-item-wrapper">
         <label for="image-{{item.ID}}">
-            <img class="grid-item" src="{{item.guid}}"/>
+            <div class="grid-item" [ngStyle]="{'background-image': 'url(' + item.guid + ')'}"></div>
         </label>
 
         <input class="modal-state" id="image-{{item.ID}}" type="radio" name="gallery-radios" value="{{item.ID}}" [(ngModel)]="activeItemId" (change)="handleSelectionChange()" />
