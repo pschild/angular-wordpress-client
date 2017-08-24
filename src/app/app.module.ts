@@ -10,6 +10,7 @@ import {HttpModule} from "@angular/http";
 import {NavigationTreeComponent} from "./navigation/navigation-tree/navigation-tree.component";
 import {PageTemplatesModule} from "./templates/page-templates.module";
 import {PageService} from "./page/page.service";
+import {MediaService} from "./page/media.service";
 
 @NgModule({
     declarations: [
@@ -26,7 +27,8 @@ import {PageService} from "./page/page.service";
     ],
     providers: [
         NavigationService,
-        PageService
+        PageService,
+        MediaService
     ],
     bootstrap: [AppComponent]
 })

@@ -5,18 +5,18 @@
 <input id="no-selection" type="radio" name="gallery-radios" value="-1" [(ngModel)]="activeItemId" (change)="handleSelectionChange()" />
 <div class="grid" *ngIf="items && items.length">
     <div *ngFor="let item of items; let i = index" class="grid-item-wrapper">
-        <label for="image-{{item.ID}}">
-            <div class="grid-item" [ngStyle]="{'background-image': 'url(' + item.guid + ')'}"></div>
+        <label for="image-{{item.id}}">
+            <div class="grid-item" [ngStyle]="{'background-image': 'url(' + item.source_url + ')', 'background-position-x': item.acf['background-x'] + '%', 'background-position-y': item.acf['background-y'] + '%'}"></div>
         </label>
 
-        <input class="modal-state" id="image-{{item.ID}}" type="radio" name="gallery-radios" value="{{item.ID}}" [(ngModel)]="activeItemId" (change)="handleSelectionChange()" />
+        <input class="modal-state" id="image-{{item.id}}" type="radio" name="gallery-radios" value="{{item.id}}" [(ngModel)]="activeItemId" (change)="handleSelectionChange()" />
         <div class="modal">
             <label class="modal__bg" for="no-selection"></label>
             <div class="modal__inner">
                 <label class="modal__close" for="no-selection">close</label>
-                <label class="modal__next-btn" for="image-{{getNextItem(i).ID}}">next</label>
-                <label class="modal__prev-btn" for="image-{{getPreviousItem(i).ID}}">prev</label>
-                <img src="{{item.guid}}"/>
+                <label class="modal__next-btn" for="image-{{getNextItem(i).id}}">next</label>
+                <label class="modal__prev-btn" for="image-{{getPreviousItem(i).id}}">prev</label>
+                <img src="{{item.source_url}}"/>
             </div>
         </div>
     </div>

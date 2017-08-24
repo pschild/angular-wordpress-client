@@ -4,7 +4,7 @@ import {Component, Input, OnInit} from '@angular/core';
     selector: 'app-tpl-text-gallery',
     template: `
         <p [innerHtml]="pageData.acf.content | safeHtml"></p>
-        <app-gallery [items]="pageData.acf.gallery_images" [activeItemId]="params.imageId"></app-gallery>
+        <app-tpl-gallery [pageData]="pageData" [params]="params"></app-tpl-gallery>
     `,
     styleUrls: ['./tpl-text-gallery.component.scss']
 })
