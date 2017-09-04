@@ -1,53 +1,103 @@
-/* Grid
+/* Grid, using NO CSS grid
  * =============================== */
-.grid-item-wrapper {
-  position: relative;
-  width: 16.6666%;
-  display: inline-block;
-  vertical-align: top;
+.grid.legacy {
+  .grid-item-wrapper {
+    position: relative;
+    width: 16.6666%;
+    display: inline-block;
+    vertical-align: top;
 
-  /* for squared images */
-  &:before {
-    content: "";
-    display: block;
-    padding-top: 100%;
+    /* for squared images */
+    &:before {
+      content: "";
+      display: block;
+      padding-top: 100%;
+    }
+
+    .grid-item {
+      position: absolute;
+      width: 98%;
+      height: 98%;
+      top: 1%;
+      left: 1%;
+      cursor: pointer;
+
+      background-position: 50%;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
   }
+}
 
-  .grid-item {
-    position: absolute;
-    width: 98%;
-    height: 98%;
-    //margin-top: -100%;
-    top: 1%;
-    left: 1%;
-    cursor: pointer;
+/* Grid, using CSS grid
+ * =============================== */
+.grid.modern {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: start;
+  justify-items: center;
+  grid-gap: 5px;
+  margin: 5px;
 
-    background-position: 50%;
-    background-size: cover;
-    background-repeat: no-repeat;
+  .grid-item-wrapper {
+    width: 100%;
+    position: relative;
+
+    /* for squared images */
+    &:before {
+      content: "";
+      display: block;
+      padding-top: 100%;
+    }
+
+    .grid-item {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      margin-top: -100%;
+      background-position: 50%;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
   }
 }
 
 @media (max-width: 1200px) {
-  .grid-item-wrapper {
+  .grid.modern {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .grid.legacy .grid-item-wrapper {
     width: 20%;
   }
 }
 
 @media (max-width: 1000px) {
-  .grid-item-wrapper {
+  .grid.modern {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid.legacy .grid-item-wrapper {
     width: 33.3333%;
   }
 }
 
 @media (max-width: 800px) {
-  .grid-item-wrapper {
+  .grid.modern {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid.legacy .grid-item-wrapper {
     width: 50%;
   }
 }
 
 @media (max-width: 400px) {
-  .grid-item-wrapper {
+  .grid.modern {
+    grid-template-columns: 1fr;
+  }
+
+  .grid.legacy .grid-item-wrapper {
     width: 100%;
   }
 }
