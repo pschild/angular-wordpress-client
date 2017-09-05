@@ -20,12 +20,7 @@ export class TplGalleryComponent implements OnInit {
 
     ngOnInit() {
         if (this.pageData.acf.gallery_images) {
-            this.mediaService.loadByIds(this.pageData.acf.gallery_images).subscribe(res => {
-                this.items = res;
-                if (this.params.imageId && this.items.map(item => item.id).indexOf(+this.params.imageId) < 0) {
-                    console.warn(`item #${this.params.imageId} is not yet loaded`);
-                }
-            });
+            this.loadPage(1);
         }
     }
 
@@ -33,7 +28,14 @@ export class TplGalleryComponent implements OnInit {
         if (this.items.length < this.pageData.acf.gallery_images.length) {
             this.mediaService.loadByIds(this.pageData.acf.gallery_images, page).subscribe(res => {
                 this.items = this.items.concat(res);
+                this.checkDeeplink(page);
             });
+        }
+    }
+
+    checkDeeplink(page) {
+        if (this.params.imageId && this.items.map(item => item.id).indexOf(+this.params.imageId) < 0) {
+            this.loadPage(page + 1);
         }
     }
 

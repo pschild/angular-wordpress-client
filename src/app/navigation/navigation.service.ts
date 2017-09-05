@@ -10,8 +10,7 @@ export class NavigationService {
     }
 
     loadNavigation() {
-        // return this.http.get(`http://juliaunkrig.de/wp-json/wp-api-menus/v2/menus/2`)
-        return this.http.get(`http://localhost:4200/assets/menu.json`)
+        return this.http.get(`http://juliaunkrig.de/wp-json/wp-api-menus/v2/menus/2`)
             .map(res => res.json());
     }
 
