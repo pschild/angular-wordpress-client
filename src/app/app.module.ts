@@ -12,6 +12,8 @@ import {PageTemplatesModule} from "./templates/page-templates.module";
 import {PageService} from "./page/page.service";
 import {MediaService} from "./page/media.service";
 
+import 'hammerjs';
+
 @NgModule({
     declarations: [
         AppComponent,

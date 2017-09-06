@@ -9,8 +9,8 @@ import {Location} from '@angular/common';
 export class GalleryComponent implements OnInit {
 
     @Input() items: Array<any> = [];
-    @Input() activeItemId: number;
     @Output() onLoadNextPage: EventEmitter<any> = new EventEmitter();
+    private _activeItemId: number;
 
     private page = 1;
 
@@ -18,6 +18,15 @@ export class GalleryComponent implements OnInit {
     }
 
     ngOnInit() {
+    }
+
+    @Input()
+    set activeItemId(value) {
+        this._activeItemId = +value;
+    }
+
+    get activeItemId() {
+        return this._activeItemId;
     }
 
     handleSelectionChange() {
@@ -61,6 +70,11 @@ export class GalleryComponent implements OnInit {
     loadNextPage() {
         this.page++;
         this.onLoadNextPage.emit(this.page);
+    }
+
+    setActiveItemId(itemId) {
+        this.activeItemId = itemId;
+        this.handleSelectionChange();
     }
 
 }
