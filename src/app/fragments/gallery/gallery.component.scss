@@ -200,6 +200,7 @@ input[name=gallery-radios] {
   right: 0;
   bottom: 0;
   left: 0;
+  z-index: 99;
   cursor: pointer;
 }
 
@@ -224,24 +225,21 @@ input[name=gallery-radios] {
   right: 0;
   bottom: 0;
   left: 0;
-  width: 50%;
   margin: auto;
   overflow: auto;
-  background: #fff;
-  border-radius: 5px;
-  padding: 1em 2em;
-  height: 80%;
+  color: #fff;
 }
 
 .modal__inner img {
   width: auto;
   height: auto;
   max-height: 100%;
-  max-width: 100%;
+  max-width: 90%;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 100;
 }
 
 .modal__close {
@@ -249,13 +247,14 @@ input[name=gallery-radios] {
   right: 10px;
   top: 10px;
   cursor: pointer;
+  z-index: 101;
 }
 
 .modal__next-btn, .modal__prev-btn {
   position: absolute;
   top: 50%;
-  z-index: 1;
   cursor: pointer;
+  z-index: 101;
 }
 
 .modal__next-btn {
