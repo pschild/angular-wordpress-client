@@ -6,7 +6,14 @@
 <div class="grid modern" *ngIf="items && items.length" infinite-scroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="300" (scrolled)="loadNextPage()">
     <div *ngFor="let item of items; let i = index" class="grid-item-wrapper">
         <label for="image-{{item.id}}">
+            <div class="loading-indicator">
+                <div class="spinner">
+                    <div class="double-bounce1"></div>
+                    <div class="double-bounce2"></div>
+                </div>
+            </div>
             <div class="grid-item" [ngStyle]="{'background-image': 'url(' + item.media_details.sizes.medium.source_url + ')', 'background-position-x': item.acf['background-x'] + '%', 'background-position-y': item.acf['background-y'] + '%'}"></div>
+            <div class="caption">{{item.caption.rendered}}</div>
         </label>
 
         <input class="modal-state" id="image-{{item.id}}" type="radio" name="gallery-radios" [value]="item.id" [(ngModel)]="activeItemId" (change)="handleSelectionChange()" />
