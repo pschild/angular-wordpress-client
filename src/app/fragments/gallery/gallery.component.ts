@@ -22,6 +22,7 @@ export class GalleryComponent implements OnInit {
 
     ngOnInit() {
         this.useLegacyGrid = this.deviceService.getDeviceInfo().browser === 'ms-edge' || this.deviceService.getDeviceInfo().browser === 'ie';
+        this.checkBodyScrollBehaviour();
     }
 
     @Input()
@@ -47,6 +48,8 @@ export class GalleryComponent implements OnInit {
         } else {
             this.location.go(`${basePath}/gallery/${this.activeItemId}`);
         }
+
+        this.checkBodyScrollBehaviour();
     }
 
     getNextItem(index: number) {
@@ -83,6 +86,14 @@ export class GalleryComponent implements OnInit {
 
     onImageLoaded(itemId) {
         document.querySelector('label[for=image-'+itemId+'] .loading-indicator').remove();
+    }
+
+    checkBodyScrollBehaviour() {
+        if (isNaN(this.activeItemId) || this.activeItemId < 0) {
+            document.querySelector('body').classList.remove('modal-open');
+        } else {
+            document.querySelector('body').classList.add('modal-open');
+        }
     }
 
 }
