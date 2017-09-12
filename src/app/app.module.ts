@@ -13,6 +13,7 @@ import {PageService} from "./page/page.service";
 import {MediaService} from "./page/media.service";
 
 import 'hammerjs';
+import {Ng2DeviceDetectorModule} from "ng2-device-detector";
 
 @NgModule({
     declarations: [
@@ -25,7 +26,8 @@ import 'hammerjs';
         BrowserModule,
         AppRoutingModule,
         HttpModule,
-        PageTemplatesModule
+        PageTemplatesModule,
+        Ng2DeviceDetectorModule.forRoot()
     ],
     providers: [
         NavigationService,

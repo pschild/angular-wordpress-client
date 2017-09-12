@@ -3,8 +3,9 @@
 </p>
 
 <input id="no-selection" type="radio" name="gallery-radios" [value]="-1" [(ngModel)]="activeItemId" (change)="handleSelectionChange()" />
-<div class="grid modern" *ngIf="items && items.length" infinite-scroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="300" (scrolled)="loadNextPage()">
+<div class="grid" [ngClass]="useLegacyGrid ? 'legacy' : 'modern'" *ngIf="items && items.length" infinite-scroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="300" (scrolled)="loadNextPage()">
     <div *ngFor="let item of items; let i = index" class="grid-item-wrapper">
+        <img class="preload-image" src="{{item.media_details.sizes.medium.source_url}}" (load)="onImageLoaded(item.id)"/>
         <label for="image-{{item.id}}">
             <div class="loading-indicator">
                 <div class="spinner">

@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Location} from '@angular/common';
+import {Ng2DeviceService} from "ng2-device-detector";
 
 @Component({
     selector: 'app-gallery',
@@ -12,12 +13,15 @@ export class GalleryComponent implements OnInit {
     @Output() onLoadNextPage: EventEmitter<any> = new EventEmitter();
     private _activeItemId: number;
 
+    useLegacyGrid: boolean = false;
+
     private page = 1;
 
-    constructor(private location: Location) {
+    constructor(private location: Location, private deviceService: Ng2DeviceService) {
     }
 
     ngOnInit() {
+        this.useLegacyGrid = this.deviceService.getDeviceInfo().browser === 'ms-edge' || this.deviceService.getDeviceInfo().browser === 'ie';
     }
 
     @Input()
@@ -75,6 +79,10 @@ export class GalleryComponent implements OnInit {
     setActiveItemId(itemId) {
         this.activeItemId = itemId;
         this.handleSelectionChange();
+    }
+
+    onImageLoaded(itemId) {
+        document.querySelector('label[for=image-'+itemId+'] .loading-indicator').remove();
     }
 
 }
