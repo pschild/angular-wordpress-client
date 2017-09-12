@@ -2,16 +2,10 @@
   .preload-image {
     display: none;
   }
-}
 
-/* Grid, using NO CSS grid
- * =============================== */
-.grid.legacy {
   .grid-item-wrapper {
     position: relative;
-    width: 16.6666%;
-    display: inline-block;
-    vertical-align: top;
+    overflow: hidden;
 
     /* for squared images */
     &:before {
@@ -22,45 +16,8 @@
 
     .grid-item {
       position: absolute;
-      width: 98%;
-      height: 98%;
-      top: 1%;
-      left: 1%;
       cursor: pointer;
 
-      background-position: 50%;
-      background-size: cover;
-      background-repeat: no-repeat;
-    }
-  }
-}
-
-/* Grid, using CSS grid
- * =============================== */
-.grid.modern {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  align-items: start;
-  justify-items: center;
-  grid-gap: 5px;
-  margin: 5px;
-
-  .grid-item-wrapper {
-    width: 100%;
-    position: relative;
-
-    /* for squared images */
-    &:before {
-      content: "";
-      display: block;
-      padding-top: 100%;
-    }
-
-    .grid-item {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      margin-top: -100%;
       background-position: 50%;
       background-size: cover;
       background-repeat: no-repeat;
@@ -137,6 +94,44 @@
         0%, 100% { transform: scale(0.0); -webkit-transform: scale(0.0); }
         50% { transform: scale(1.0); -webkit-transform: scale(1.0); }
       }
+    }
+  }
+}
+
+/* Grid, using NO CSS grid
+ * =============================== */
+.grid.legacy {
+  .grid-item-wrapper {
+    width: 16.6666%;
+    display: inline-block;
+    vertical-align: top;
+
+    .grid-item {
+      width: 98%;
+      height: 98%;
+      top: 1%;
+      left: 1%;
+    }
+  }
+}
+
+/* Grid, using CSS grid
+ * =============================== */
+.grid.modern {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: start;
+  justify-items: center;
+  grid-gap: 5px;
+  margin: 5px;
+
+  .grid-item-wrapper {
+    width: 100%;
+
+    .grid-item {
+      width: 100%;
+      height: 100%;
+      margin-top: -100%;
     }
   }
 }
