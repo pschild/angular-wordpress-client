@@ -11,6 +11,7 @@ import {NavigationTreeComponent} from "./navigation/navigation-tree/navigation-t
 import {PageTemplatesModule} from "./templates/page-templates.module";
 import {PageService} from "./page/page.service";
 import {MediaService} from "./page/media.service";
+import {PostService} from "./page/post.service";
 
 import 'hammerjs';
 import {Ng2DeviceDetectorModule} from "ng2-device-detector";
@@ -32,7 +33,8 @@ import {Ng2DeviceDetectorModule} from "ng2-device-detector";
     providers: [
         NavigationService,
         PageService,
-        MediaService
+        MediaService,
+        PostService
     ],
     bootstrap: [AppComponent]
 })

@@ -5,6 +5,7 @@ import {TplTextGalleryComponent} from "./tpl-text-gallery/tpl-text-gallery.compo
 import {TplTextComponent} from "./tpl-text/tpl-text.component";
 import {FragmentsModule} from "../fragments/fragments.module";
 import {SafeHtmlPipe} from "../pipes/safe-html.pipe";
+import {TplPostsComponent} from "./tpl-posts/tpl-posts.component";
 
 @NgModule({
     imports: [
@@ -14,12 +15,14 @@ import {SafeHtmlPipe} from "../pipes/safe-html.pipe";
     exports: [
         TplTextComponent,
         TplTextGalleryComponent,
-        TplGalleryComponent
+        TplGalleryComponent,
+        TplPostsComponent
     ],
     declarations: [
         TplTextComponent,
         TplTextGalleryComponent,
         TplGalleryComponent,
+        TplPostsComponent,
         SafeHtmlPipe
     ]
 })
