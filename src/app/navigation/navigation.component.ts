@@ -19,11 +19,11 @@ export class NavigationComponent implements OnInit {
     }
 
     handleLinkClicked(clickedItem) {
-        document.querySelector('.navigation').classList.remove('menu-open');
+        document.querySelector('body').classList.remove('menu-open');
     }
 
     handleMaskClicked() {
-        document.querySelector('.navigation').classList.remove('menu-open');
+        document.querySelector('body').classList.remove('menu-open');
     }
 
 }

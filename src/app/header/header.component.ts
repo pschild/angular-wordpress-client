@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
     }
 
     handleMenuTriggerClicked() {
-        document.querySelector('.navigation').classList.toggle('menu-open');
+        document.querySelector('body').classList.toggle('menu-open');
     }
 
 }
