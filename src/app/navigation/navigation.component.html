@@ -1,3 +1,6 @@
-<div>
-    <app-navigation-tree [items]="navigationStructure$ | async"></app-navigation-tree>
+<div class="navigation">
+    <div class="menu-mask" (click)="handleMaskClicked()"></div>
+    <nav>
+        <app-navigation-tree [items]="navigationStructure$ | async" (linkClickedEvent)="handleLinkClicked($event)"></app-navigation-tree>
+    </nav>
 </div>

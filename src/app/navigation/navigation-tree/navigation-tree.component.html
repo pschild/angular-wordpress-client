@@ -1,6 +1,6 @@
 <ul>
     <li *ngFor="let item of items">
-        <a routerLink="/{{item.object_slug}}" routerLinkActive="active">{{item.title}}</a>
+        <a routerLink="/{{item.object_slug}}" routerLinkActive="active" (click)="handleLinkClicked(item)">{{item.title}}</a>
         <div *ngIf="item.children">
             <app-navigation-tree [items]="item.children"></app-navigation-tree>
         </div>

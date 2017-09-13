@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
     selector: 'app-navigation-tree',
@@ -9,10 +9,16 @@ export class NavigationTreeComponent implements OnInit {
 
     @Input() items: Array<any> = [];
 
+    @Output() linkClickedEvent = new EventEmitter();
+
     constructor() {
     }
 
     ngOnInit() {
+    }
+
+    handleLinkClicked(item) {
+        this.linkClickedEvent.emit(item);
     }
 
 }

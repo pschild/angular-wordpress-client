@@ -9,6 +9,7 @@ import {NavigationService} from "./navigation/navigation.service";
 import {HttpModule} from "@angular/http";
 import {NavigationTreeComponent} from "./navigation/navigation-tree/navigation-tree.component";
 import {PageTemplatesModule} from "./templates/page-templates.module";
+import {HeaderComponent} from "./header/header.component";
 import {PageService} from "./page/page.service";
 import {MediaService} from "./page/media.service";
 import {PostService} from "./page/post.service";
@@ -21,7 +22,8 @@ import {Ng2DeviceDetectorModule} from "ng2-device-detector";
         AppComponent,
         PageComponent,
         NavigationComponent,
-        NavigationTreeComponent
+        NavigationTreeComponent,
+        HeaderComponent
     ],
     imports: [
         BrowserModule,

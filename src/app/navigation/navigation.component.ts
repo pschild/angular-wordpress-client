@@ -18,4 +18,12 @@ export class NavigationComponent implements OnInit {
         this.navigationStructure$ = this.navigationService.loadNavigation().map(res => res.items);
     }
 
+    handleLinkClicked(clickedItem) {
+        document.querySelector('.navigation').classList.remove('menu-open');
+    }
+
+    handleMaskClicked() {
+        document.querySelector('.navigation').classList.remove('menu-open');
+    }
+
 }

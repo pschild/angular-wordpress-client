@@ -1,4 +1,4 @@
-<div *ngIf="pageData$ | async; let pageData">
+<div *ngIf="pageData$ | async; let pageData" class="page-container">
     <div [ngSwitch]="pageData.template">
         <app-tpl-text [pageData]="pageData" [params]="params" *ngSwitchCase="'template-content.php'"></app-tpl-text>
         <app-tpl-gallery [pageData]="pageData" [params]="params" *ngSwitchCase="'template-gallery.php'"></app-tpl-gallery>
