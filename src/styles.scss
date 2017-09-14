@@ -5,28 +5,4 @@ body {
   &.modal-open {
     overflow-y: hidden;
   }
-
-  &.menu-open {
-    .menu-trigger > span {
-      background-color: transparent !important;
-
-      &:before {
-        transform: translateY(0) rotate(45deg) !important;
-      }
-
-      &:after {
-        transform: translateY(0) rotate(-45deg) !important;
-      }
-    }
-
-    .navigation {
-      .menu-mask {
-        height: 100% !important;
-      }
-
-      nav {
-        left: 0 !important;
-      }
-    }
-  }
 }

@@ -11,6 +11,8 @@ export class NavigationComponent implements OnInit {
 
     navigationStructure$: Observable<any>;
 
+    menuIsOpen: boolean = false;
+
     constructor(private navigationService: NavigationService) {
     }
 
@@ -18,12 +20,16 @@ export class NavigationComponent implements OnInit {
         this.navigationStructure$ = this.navigationService.loadNavigation().map(res => res.items);
     }
 
+    handleMenuTriggerClicked() {
+        this.menuIsOpen = !this.menuIsOpen;
+    }
+
     handleLinkClicked(clickedItem) {
-        document.querySelector('body').classList.remove('menu-open');
+        this.menuIsOpen = false;
     }
 
     handleMaskClicked() {
-        document.querySelector('body').classList.remove('menu-open');
+        this.menuIsOpen = false;
     }
 
 }

@@ -13,8 +13,4 @@ export class HeaderComponent implements OnInit {
     ngOnInit() {
     }
 
-    handleMenuTriggerClicked() {
-        document.querySelector('body').classList.toggle('menu-open');
-    }
-
 }

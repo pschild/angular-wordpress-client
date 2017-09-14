@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, Renderer2} from '@angular/core';
 import {Location} from '@angular/common';
 import {Ng2DeviceService} from "ng2-device-detector";
 
@@ -17,7 +17,7 @@ export class GalleryComponent implements OnInit {
 
     private page = 1;
 
-    constructor(private location: Location, private deviceService: Ng2DeviceService) {
+    constructor(private renderer: Renderer2, private location: Location, private deviceService: Ng2DeviceService) {
     }
 
     ngOnInit() {
@@ -85,14 +85,14 @@ export class GalleryComponent implements OnInit {
     }
 
     onImageLoaded(itemId) {
-        document.querySelector('label[for=image-'+itemId+'] .loading-indicator').remove();
+        // document.querySelector('label[for=image-'+itemId+'] .loading-indicator').remove();
     }
 
     checkBodyScrollBehaviour() {
         if (isNaN(this.activeItemId) || this.activeItemId < 0) {
-            document.querySelector('body').classList.remove('modal-open');
+            this.renderer.removeClass(document.body, 'modal-open')
         } else {
-            document.querySelector('body').classList.add('modal-open');
+            this.renderer.addClass(document.body, 'modal-open');
         }
     }
 
