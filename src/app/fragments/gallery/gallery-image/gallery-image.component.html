@@ -1,0 +1,11 @@
+<img class="preload-image" src="{{item.media_details.sizes.medium.source_url}}" (load)="onImageLoaded()"/>
+<label for="image-{{item.id}}">
+    <div class="loading-indicator" *ngIf="!hasLoaded">
+        <div class="spinner">
+            <div class="double-bounce1"></div>
+            <div class="double-bounce2"></div>
+        </div>
+    </div>
+    <div class="grid-item" [ngStyle]="{'background-image': 'url(' + item.media_details.sizes.medium.source_url + ')', 'background-position-x': item.acf['background-x'] + '%', 'background-position-y': item.acf['background-y'] + '%'}"></div>
+    <div class="caption" *ngIf="item.caption.rendered">{{item.caption.rendered}}</div>
+</label>

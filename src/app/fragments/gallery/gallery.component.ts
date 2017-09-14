@@ -84,10 +84,6 @@ export class GalleryComponent implements OnInit {
         this.handleSelectionChange();
     }
 
-    onImageLoaded(itemId) {
-        // document.querySelector('label[for=image-'+itemId+'] .loading-indicator').remove();
-    }
-
     checkBodyScrollBehaviour() {
         if (isNaN(this.activeItemId) || this.activeItemId < 0) {
             this.renderer.removeClass(document.body, 'modal-open')
