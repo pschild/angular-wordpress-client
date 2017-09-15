@@ -7,15 +7,17 @@
 
 .cssSlider {
   overflow-x: hidden;
-  width: 200px;
+  width: 500px;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 .sliderElements {
   list-style: none;
   position: relative;
   left: 0;
-  margin-bottom: .8em;
-  transition: left .8s ease-in-out;
+  margin-bottom: 15px;
+  transition: left .5s ease-in-out;
 
   &:after {
     content: ".";
@@ -32,18 +34,22 @@
     position: relative;
   }
 
-  img {
+  .slider-image-container {
     width: 100%;
-    height: auto;
+    height: 500px;
+
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
-  figcaption {
+  .caption {
     display: block;
     color: #fff;
     position: absolute;
     left: 0;
-    bottom: 1em;
-    padding: .4em;
+    bottom: 0;
+    padding: 5px;
     background: rgba(0, 0, 0, .5);
   }
 }
@@ -58,22 +64,23 @@
 
   li {
     display: inline-block;
+    margin: 0 5px;
   }
 
   label {
-    width: 20px;
-    height: 20px;
-    line-height: 20px;
-    text-align: center;
+    width: 14px;
+    height: 14px;
     border-radius: 50%;
     display: block;
     cursor: pointer;
-    background: #68B022;
-    color: #68B022;
+    background: #ccc;
 
-    &:hover {
-      background: #ddd;
-      color: #ddd;
+    &:hover, &.active {
+      background: #aaa;
+    }
+
+    &.active {
+      cursor: default;
     }
   }
 }

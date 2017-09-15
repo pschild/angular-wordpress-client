@@ -8,16 +8,15 @@
 
     <ul class="sliderElements" [ngStyle]="{'width': items.length * 100 + '%', 'left': -(activeSlideIndex * 100) + '%'}">
         <li *ngFor="let item of items; let i = index" [ngStyle]="{'width': 100 / items.length + '%'}">
-            <figure>
-                <img src="{{item.media_details.sizes.medium.source_url}}" alt="">
-                <figcaption>Hier könnte deine Beschreibung stehen.</figcaption>
-            </figure>
+            <div class="slider-image-container" [ngStyle]="{'background-image': 'url(' + item.media_details.sizes.medium.source_url + ')'}">
+                <div class="caption">Beschreibung</div>
+            </div>
         </li>
     </ul>
 
     <ul class="sliderControls" *ngIf="items.length > 1">
         <li *ngFor="let item of items; let i = index">
-            <label for="slide-{{i}}"></label>
+            <label for="slide-{{i}}" [ngClass]="{'active': activeSlideIndex === i}"></label>
         </li>
     </ul>
 </div>
