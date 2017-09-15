@@ -1,0 +1,23 @@
+<p *ngIf="!items || !items.length">
+    Keine Bilder in dieser Galerie vorhanden.
+</p>
+
+<div class="cssSlider">
+
+    <input *ngFor="let item of items; let i = index" type="radio" name="slider" id="slide-{{i}}" [value]="i" [(ngModel)]="activeSlideIndex">
+
+    <ul class="sliderElements" [ngStyle]="{'width': items.length * 100 + '%', 'left': -(activeSlideIndex * 100) + '%'}">
+        <li *ngFor="let item of items; let i = index" [ngStyle]="{'width': 100 / items.length + '%'}">
+            <figure>
+                <img src="{{item.media_details.sizes.medium.source_url}}" alt="">
+                <figcaption>Hier könnte deine Beschreibung stehen.</figcaption>
+            </figure>
+        </li>
+    </ul>
+
+    <ul class="sliderControls" *ngIf="items.length > 1">
+        <li *ngFor="let item of items; let i = index">
+            <label for="slide-{{i}}"></label>
+        </li>
+    </ul>
+</div>

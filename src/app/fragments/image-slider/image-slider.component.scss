@@ -1,0 +1,79 @@
+.sliderElements,
+.sliderElements figure,
+.sliderControls {
+  margin: 0;
+  padding: 0;
+}
+
+.cssSlider {
+  overflow-x: hidden;
+  width: 200px;
+}
+
+.sliderElements {
+  list-style: none;
+  position: relative;
+  left: 0;
+  margin-bottom: .8em;
+  transition: left .8s ease-in-out;
+
+  &:after {
+    content: ".";
+    display: block;
+    height: .1px;
+    clear: both;
+    visibility: hidden;
+    font-size: 0;
+    overflow: hidden;
+  }
+
+  & > li {
+    float: left;
+    position: relative;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  figcaption {
+    display: block;
+    color: #fff;
+    position: absolute;
+    left: 0;
+    bottom: 1em;
+    padding: .4em;
+    background: rgba(0, 0, 0, .5);
+  }
+}
+
+.cssSlider input {
+  position: absolute;
+  left: -99999px;
+}
+
+.sliderControls {
+  text-align: center;
+
+  li {
+    display: inline-block;
+  }
+
+  label {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 50%;
+    display: block;
+    cursor: pointer;
+    background: #68B022;
+    color: #68B022;
+
+    &:hover {
+      background: #ddd;
+      color: #ddd;
+    }
+  }
+}
