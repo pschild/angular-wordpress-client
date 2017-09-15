@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {PostService} from "../../page/post.service";
+import {PostService} from "../../../post/post.service";
 import {Observable} from "rxjs/Observable";
 
 @Component({
@@ -8,6 +8,7 @@ import {Observable} from "rxjs/Observable";
         <article *ngFor="let postItem of postItems$ | async">
             <h2>{{postItem.title.rendered}}</h2>
             <p [innerHtml]="postItem.acf.content | safeHtml"></p>
+            <a routerLink="./post/{{postItem.id}}">mehr</a>
         </article>
     `,
     styleUrls: ['./tpl-posts.component.scss']

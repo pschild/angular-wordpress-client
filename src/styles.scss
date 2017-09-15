@@ -6,4 +6,15 @@ body {
   &.modal-open {
     overflow-y: hidden;
   }
+
+  .content-container {
+    margin-top: 100px;
+
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-right: auto;
+    margin-left: auto;
+
+    max-width: 1140px;
+  }
 }

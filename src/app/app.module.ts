@@ -2,8 +2,10 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
+import {Ng2DeviceDetectorModule} from "ng2-device-detector";
 import {AppComponent} from './app.component';
 import {PageComponent} from "./page/page.component";
+import {PostComponent} from "./post/post.component";
 import {NavigationComponent} from "./navigation/navigation.component";
 import {NavigationService} from "./navigation/navigation.service";
 import {HttpModule} from "@angular/http";
@@ -11,11 +13,10 @@ import {NavigationTreeComponent} from "./navigation/navigation-tree/navigation-t
 import {PageTemplatesModule} from "./templates/page-templates.module";
 import {HeaderComponent} from "./header/header.component";
 import {PageService} from "./page/page.service";
-import {MediaService} from "./page/media.service";
-import {PostService} from "./page/post.service";
+import {MediaService} from "./media.service";
+import {PostService} from "./post/post.service";
 
 import 'hammerjs';
-import {Ng2DeviceDetectorModule} from "ng2-device-detector";
 
 @NgModule({
     declarations: [
@@ -23,7 +24,8 @@ import {Ng2DeviceDetectorModule} from "ng2-device-detector";
         PageComponent,
         NavigationComponent,
         NavigationTreeComponent,
-        HeaderComponent
+        HeaderComponent,
+        PostComponent
     ],
     imports: [
         BrowserModule,

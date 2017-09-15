@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {MediaService} from "../../page/media.service";
+import {MediaService} from "../../../media.service";
 
 @Component({
     selector: 'app-tpl-gallery',
