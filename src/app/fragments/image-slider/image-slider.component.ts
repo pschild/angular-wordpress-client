@@ -17,4 +17,11 @@ export class ImageSliderComponent implements OnInit {
     ngOnInit() {
     }
 
+    setActiveIndex(newIndex) {
+        if (newIndex === this.items.length || newIndex < 0) {
+            return;
+        }
+        this.activeSlideIndex = newIndex;
+    }
+
 }
