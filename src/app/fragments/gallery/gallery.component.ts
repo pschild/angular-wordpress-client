@@ -92,4 +92,15 @@ export class GalleryComponent implements OnInit {
         }
     }
 
+    shareOnFacebook(item) {
+        let params = {
+            title: item.title.rendered,
+            description: item.caption.rendered,
+            imageUrl: item.source_url,
+            redirectUrl: location.href
+        };
+        let url = `https://www.facebook.com/sharer/sharer.php?u=http://fb.juliaunkrig.de/share.php?params=${JSON.stringify(params)}`;
+        window.open(url, 'pop', 'width=600, height=400, scrollbars=no');
+    }
+
 }

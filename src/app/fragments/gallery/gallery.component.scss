@@ -164,3 +164,10 @@ input[name=gallery-radios] {
 .modal__prev-btn {
   left: 10px;
 }
+
+.fb-share-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 101;
+}

@@ -15,6 +15,7 @@
                 <label class="modal__next-btn" for="image-{{getNextItem(i).id}}">next</label>
                 <label class="modal__prev-btn" for="image-{{getPreviousItem(i).id}}">prev</label>
                 <img src="{{item.source_url}}" (swipeleft)="setActiveItemId(getNextItem(i).id)" (swiperight)="setActiveItemId(getPreviousItem(i).id)" />
+                <button class="fb-share-btn" (click)="shareOnFacebook(item)">share on facebook</button>
             </div>
         </div>
     </div>
