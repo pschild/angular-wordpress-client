@@ -15,8 +15,6 @@ export class GalleryComponent implements OnInit {
 
     useLegacyGrid: boolean = false;
 
-    private page = 1;
-
     constructor(private renderer: Renderer2, private location: Location, private deviceService: Ng2DeviceService) {
     }
 
@@ -75,8 +73,7 @@ export class GalleryComponent implements OnInit {
     }
 
     loadNextPage() {
-        this.page++;
-        this.onLoadNextPage.emit(this.page);
+        this.onLoadNextPage.emit();
     }
 
     setActiveItemId(itemId) {
