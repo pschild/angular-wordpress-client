@@ -2,3 +2,27 @@
 
 * https://github.com/orizens/angular2-infinite-scroll
 * https://github.com/KoderLabs/ng2-device-detector
+* (https://github.com/zyra/ngx-facebook)
+
+# server-scripts
+### share.php
+* og-tags cannot be set dynamically via JavaScript.
+* Use this static site to generate og-tags for sharing on Facebook.
+
+## plugins
+### acf-custom-post-template-support.php
+* Plugin for Wordpress (folder wp-content/plugins, then activate in Backend)
+* Used to be able to select custom page templates for type "post" (not only page) in combination with "Advanced Custom Fields"
+
+## templates
+### template-page-....php
+* Templates for Wordpress type "page"
+
+### template-post-....php
+* Templates for Wordpress type "post"
+
+# Wordpress Plugins
+* [ACF to REST API](http://github.com/airesvsg/acf-to-rest-api): Exposes Advanced Custom Fields Endpoints in the WP REST API v2. Version: 2.2.1
+* [Advanced Custom Fields](https://www.advancedcustomfields.com/): Customise WordPress with powerful, professional and intuitive fields. Version: 4.4.11
+* Support for Custom Post Templates in ACF (see plugins)
+* [WP REST API Menus](https://de.wordpress.org/plugins/wp-api-menus/): Extends WP API with WordPress menu routes. Version: 1.3.1
