@@ -5,6 +5,7 @@ import {GalleryImageComponent} from "./gallery/gallery-image/gallery-image.compo
 import {FormsModule} from "@angular/forms";
 import {InfiniteScrollModule} from "angular2-infinite-scroll";
 import {ImageSliderComponent} from "./image-slider/image-slider.component";
+import {LoadingIndicatorComponent} from "./loading-indicator/loading-indicator.component";
 
 @NgModule({
     imports: [
@@ -14,12 +15,14 @@ import {ImageSliderComponent} from "./image-slider/image-slider.component";
     ],
     exports: [
         GalleryComponent,
-        ImageSliderComponent
+        ImageSliderComponent,
+        LoadingIndicatorComponent
     ],
     declarations: [
         GalleryComponent,
         GalleryImageComponent,
-        ImageSliderComponent
+        ImageSliderComponent,
+        LoadingIndicatorComponent
     ]
 })
 export class FragmentsModule {

@@ -2,6 +2,7 @@
   .grid-item-wrapper {
     position: relative;
     overflow: hidden;
+    background: #ddd;
 
     /* for squared images */
     &:before {

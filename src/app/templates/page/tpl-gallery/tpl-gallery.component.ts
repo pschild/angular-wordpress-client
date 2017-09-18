@@ -1,10 +1,11 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {MediaService} from "../../../media.service";
 
 @Component({
     selector: 'app-tpl-gallery',
     template: `
-        <app-gallery [items]="items" [activeItemId]="params.imageId" (onLoadNextPage)="loadNextPage()"></app-gallery>
+        <app-loading-indicator [size]="50" *ngIf="!hasLoaded"></app-loading-indicator>
+        <app-gallery [items]="items" [activeItemId]="params.imageId" (onLoadNextPage)="loadNextPage()" [ngStyle]="{'display': hasLoaded ? 'block' : 'none'}"></app-gallery>
     `,
     styleUrls: ['./tpl-gallery.component.scss']
 })
@@ -15,6 +16,7 @@ export class TplGalleryComponent implements OnInit {
 
     items: Array<any> = [];
     page: number = 1;
+    hasLoaded: boolean = false;
 
     constructor(private mediaService: MediaService) {
     }
@@ -42,6 +44,8 @@ export class TplGalleryComponent implements OnInit {
     checkDeeplink(page) {
         if (this.params.imageId && this.items.map(item => item.id).indexOf(+this.params.imageId) < 0) {
             this.loadNextPage();
+        } else {
+            this.hasLoaded = true;
         }
     }
 
