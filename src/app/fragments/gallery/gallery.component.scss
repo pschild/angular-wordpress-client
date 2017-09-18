@@ -165,9 +165,16 @@ input[name=gallery-radios] {
   left: 10px;
 }
 
-.fb-share-btn {
+.counter {
   position: absolute;
   top: 10px;
   left: 10px;
+  z-index: 101;
+}
+
+.fb-share-btn {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
   z-index: 101;
 }
