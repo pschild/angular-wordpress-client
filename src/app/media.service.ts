@@ -6,7 +6,7 @@ import "rxjs/add/operator/takeWhile";
 @Injectable()
 export class MediaService {
 
-    private itemsPerPage = 20;
+    private itemsPerPage = 30;
 
     constructor(private http: Http) {
     }
