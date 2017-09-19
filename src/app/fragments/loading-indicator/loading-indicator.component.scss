@@ -1,4 +1,4 @@
-.loading-indicator {
+/*.loading-indicator {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -38,4 +38,12 @@
     0%, 100% { transform: scale(0.0); -webkit-transform: scale(0.0); }
     50% { transform: scale(1.0); -webkit-transform: scale(1.0); }
   }
+}*/
+
+.lds-camera {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%,-50%,0);
+  z-index: 1;
 }

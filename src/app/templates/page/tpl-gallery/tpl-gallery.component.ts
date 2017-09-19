@@ -4,7 +4,7 @@ import {MediaService} from "../../../media.service";
 @Component({
     selector: 'app-tpl-gallery',
     template: `
-        <app-loading-indicator [size]="50" *ngIf="!hasLoaded"></app-loading-indicator>
+        <app-loading-indicator [size]="100" *ngIf="!hasLoaded"></app-loading-indicator>
         <app-gallery [items]="items" [activeItemId]="params.imageId" (onLoadNextPage)="loadNextPage()" [ngStyle]="{'display': hasLoaded ? 'block' : 'none'}"></app-gallery>
     `,
     styleUrls: ['./tpl-gallery.component.scss']
