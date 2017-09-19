@@ -18,6 +18,14 @@ export class GalleryImageComponent implements OnInit {
     ngOnInit() {
     }
 
+    getSourceUrl() {
+        if (this.item.media_details.height > this.item.media_details.width) {
+            return this.item.media_details.sizes.image_grid_portrait.source_url;
+        } else {
+            return this.item.media_details.sizes.image_grid_landscape.source_url;
+        }
+    }
+
     onImageLoaded() {
         this.hasLoaded = true;
     }
