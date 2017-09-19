@@ -1,7 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {KeyCode} from "../../enums/key-code.enum";
 
 @Component({
     selector: 'app-image-slider',
+    host: {'(window:keyup)': 'handleKeyDown($event)'},
     templateUrl: './image-slider.component.html',
     styleUrls: ['./image-slider.component.scss']
 })
@@ -26,6 +28,17 @@ export class ImageSliderComponent implements OnInit {
             return;
         }
         this.activeSlideIndex = newIndex;
+    }
+
+    handleKeyDown(event: KeyboardEvent) {
+        switch (event.keyCode) {
+            case KeyCode.LEFT_ARROW:
+                this.setActiveIndex(this.activeSlideIndex - 1);
+                break;
+            case KeyCode.RIGHT_ARROW:
+                this.setActiveIndex(this.activeSlideIndex + 1);
+                break;
+        }
     }
 
 }

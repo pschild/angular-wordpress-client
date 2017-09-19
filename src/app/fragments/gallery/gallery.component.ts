@@ -1,9 +1,11 @@
 import {Component, EventEmitter, Input, OnInit, Output, Renderer2} from '@angular/core';
 import {Location} from '@angular/common';
 import {Ng2DeviceService} from "ng2-device-detector";
+import {KeyCode} from "../../enums/key-code.enum";
 
 @Component({
     selector: 'app-gallery',
+    host: {'(window:keyup)': 'handleKeyDown($event)'},
     templateUrl: './gallery.component.html',
     styleUrls: ['./gallery.component.scss']
 })
@@ -50,7 +52,37 @@ export class GalleryComponent implements OnInit {
         this.checkBodyScrollBehaviour();
     }
 
-    getNextItem(index: number) {
+    handleKeyDown(event: KeyboardEvent) {
+        switch (event.keyCode) {
+            case KeyCode.LEFT_ARROW:
+                let prevItem = this.getPreviousItemByItemId(this.activeItemId);
+                this.setActiveItemId(prevItem.id);
+                break;
+            case KeyCode.RIGHT_ARROW:
+                let nextItem = this.getNextItemByItemId(this.activeItemId);
+                this.setActiveItemId(nextItem.id);
+                break;
+            case KeyCode.ESCAPE:
+                this.setActiveItemId(-1);
+                break;
+        }
+    }
+
+    getNextItemByItemId(itemId: number) {
+        let index = this.items.map(item => item.id).indexOf(itemId);
+        if (index >= 0) {
+            return this.getNextItemByIndex(index);
+        }
+    }
+
+    getPreviousItemByItemId(itemId: number) {
+        let index = this.items.map(item => item.id).indexOf(itemId);
+        if (index >= 0) {
+            return this.getPreviousItemByIndex(index);
+        }
+    }
+
+    getNextItemByIndex(index: number) {
         let nextIndex;
         if (index >= this.items.length - 1) {
             nextIndex = 0;
@@ -61,7 +93,7 @@ export class GalleryComponent implements OnInit {
         return this.items[nextIndex];
     }
 
-    getPreviousItem(index: number) {
+    getPreviousItemByIndex(index: number) {
         let prevIndex;
         if (index === 0) {
             prevIndex = this.items.length - 1;
