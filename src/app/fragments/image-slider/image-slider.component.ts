@@ -18,11 +18,7 @@ export class ImageSliderComponent implements OnInit {
     }
 
     getSourceUrl(item) {
-        if (item.media_details.height > item.media_details.width) {
-            return item.media_details.sizes.image_grid_portrait.source_url;
-        } else {
-            return item.media_details.sizes.image_grid_landscape.source_url;
-        }
+        return item.media_details.sizes.full.source_url;
     }
 
     setActiveIndex(newIndex) {
