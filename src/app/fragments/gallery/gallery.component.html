@@ -11,11 +11,11 @@
         <div class="modal">
             <label class="modal__bg" for="no-selection"></label>
             <div class="modal__inner">
-                <label class="modal__close" for="no-selection">close</label>
-                <label class="modal__next-btn" for="image-{{getNextItem(i).id}}">next</label>
-                <label class="modal__prev-btn" for="image-{{getPreviousItem(i).id}}">prev</label>
+                <label class="modal__close" for="no-selection"><i class="fa fa-close"></i></label>
+                <label class="modal__next-btn" for="image-{{getNextItem(i).id}}"><i class="fa fa-arrow-right"></i></label>
+                <label class="modal__prev-btn" for="image-{{getPreviousItem(i).id}}"><i class="fa fa-arrow-left"></i></label>
                 <img src="{{item.source_url}}" (swipeleft)="setActiveItemId(getNextItem(i).id)" (swiperight)="setActiveItemId(getPreviousItem(i).id)" />
-                <button class="fb-share-btn" (click)="shareOnFacebook(item)">share on facebook</button>
+                <button class="fb-share-btn" (click)="shareOnFacebook(item)"><i class="fa fa-share-alt"></i></button>
                 <span class="counter">{{(i + 1) + ' / ' + items.length}}</span>
             </div>
         </div>
