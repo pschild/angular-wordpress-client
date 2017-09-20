@@ -4,16 +4,17 @@ import {TplGalleryComponent} from "./page/tpl-gallery/tpl-gallery.component";
 import {TplTextGalleryComponent} from "./page/tpl-text-gallery/tpl-text-gallery.component";
 import {TplTextComponent} from "./page/tpl-text/tpl-text.component";
 import {FragmentsModule} from "../fragments/fragments.module";
-import {SafeHtmlPipe} from "../pipes/safe-html.pipe";
 import {TplPostsComponent} from "./page/tpl-posts/tpl-posts.component";
 import {TplPostContentGalleryComponent} from "./post/tpl-post-content-gallery/tpl-post-content-gallery.component";
 import {RouterModule} from "@angular/router";
+import {PipesModule} from "../pipes/pipes.module";
 
 @NgModule({
     imports: [
         CommonModule,
         FragmentsModule,
-        RouterModule
+        RouterModule,
+        PipesModule
     ],
     exports: [
         TplTextComponent,
@@ -27,8 +28,7 @@ import {RouterModule} from "@angular/router";
         TplTextGalleryComponent,
         TplGalleryComponent,
         TplPostsComponent,
-        TplPostContentGalleryComponent,
-        SafeHtmlPipe
+        TplPostContentGalleryComponent
     ]
 })
 export class PageTemplatesModule {

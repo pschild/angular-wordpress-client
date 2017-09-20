@@ -1,15 +1,12 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {PostService} from "../../../post/post.service";
 import {Observable} from "rxjs/Observable";
+import "rxjs/add/observable/forkJoin";
 
 @Component({
     selector: 'app-tpl-posts',
     template: `
-        <article *ngFor="let postItem of postItems$ | async">
-            <h2>{{postItem.title.rendered}}</h2>
-            <p [innerHtml]="postItem.acf.content | safeHtml"></p>
-            <a routerLink="./post/{{postItem.id}}">mehr</a>
-        </article>
+        <app-post-preview *ngFor="let postItem of postItems$ | async" [postItem]="postItem"></app-post-preview>
     `,
     styleUrls: ['./tpl-posts.component.scss']
 })
