@@ -4,5 +4,8 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-    production: false
+    production: false,
+    staticSharerUrl: 'http://fb.juliaunkrig.de/share.php',
+    apiUrl: 'http://wp.juliaunkrig.de/wp-json',
+    menuId: 3
 };

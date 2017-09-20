@@ -1,10 +1,10 @@
-# Plugins
+# Angular Plugins
 
 * https://github.com/orizens/angular2-infinite-scroll
 * https://github.com/KoderLabs/ng2-device-detector
 * (https://github.com/zyra/ngx-facebook)
 
-# server-scripts
+# Folder: server-scripts
 ### share.php
 * og-tags cannot be set dynamically via JavaScript.
 * Use this static site to generate og-tags for sharing on Facebook.
@@ -26,3 +26,16 @@
 * [Advanced Custom Fields](https://www.advancedcustomfields.com/): Customise WordPress with powerful, professional and intuitive fields. Version: 4.4.11
 * Support for Custom Post Templates in ACF (see plugins)
 * [WP REST API Menus](https://de.wordpress.org/plugins/wp-api-menus/): Extends WP API with WordPress menu routes. Version: 1.3.1
+
+# Wordpress installation
+
+1) Download Wordpress and install it on the server (for example via FTP).
+2) Install and activate plugins for Wordpress (see section Wordpress Plugins)
+3) Install and activate theme for Wordpress
+4) In Wordpress: choose "Einstellungen > Permalinks > Beitragsname"
+5) Import ACF JSON: Werkzeuge > Daten importieren > WordPress (must be installed first) > choose XML file > Import
+
+# Troubleshooting
+
+* Make sure that the menu ID used in environment.ts fits with the menu ID in Wordpress.
+* When using a fresh Wordpress installation and ACFs are not showing up properly when creating a post, try to save the ACFs again.

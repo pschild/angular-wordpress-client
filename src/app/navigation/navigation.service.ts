@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Http} from "@angular/http";
 import "rxjs/add/operator/map";
+import {environment} from "../../environments/environment";
 
 @Injectable()
 export class NavigationService {
@@ -10,7 +11,7 @@ export class NavigationService {
     }
 
     loadNavigation() {
-        return this.http.get(`http://juliaunkrig.de/wp-json/wp-api-menus/v2/menus/2`)
+        return this.http.get(`${environment.apiUrl}/wp-api-menus/v2/menus/${environment.menuId}`)
             .map(res => res.json());
     }
 

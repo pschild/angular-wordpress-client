@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output, Renderer2} from '@angula
 import {Location} from '@angular/common';
 import {Ng2DeviceService} from "ng2-device-detector";
 import {KeyCode} from "../../enums/key-code.enum";
+import {environment} from "../../../environments/environment";
 
 @Component({
     selector: 'app-gallery',
@@ -128,7 +129,7 @@ export class GalleryComponent implements OnInit {
             imageUrl: item.source_url,
             redirectUrl: location.href
         };
-        let url = `https://www.facebook.com/sharer/sharer.php?u=http://fb.juliaunkrig.de/share.php?params=${JSON.stringify(params)}`;
+        let url = `https://www.facebook.com/sharer/sharer.php?u=${environment.staticSharerUrl}?params=${JSON.stringify(params)}`;
         window.open(url, 'pop', 'width=600, height=400, scrollbars=no');
     }
 
