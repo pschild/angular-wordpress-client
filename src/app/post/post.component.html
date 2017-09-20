@@ -1,4 +1,4 @@
-<div *ngIf="postData$ | async; let postData" class="content-container">
+<div *ngIf="postData$ | async; let postData" class="container content-container">
     <div [ngSwitch]="postData.template">
         <app-tpl-post-content-gallery [postData]="postData" [params]="params" *ngSwitchCase="'template-post-content-gallery.php'"></app-tpl-post-content-gallery>
     </div>
