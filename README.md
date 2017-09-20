@@ -5,10 +5,6 @@
 * (https://github.com/zyra/ngx-facebook)
 
 # Folder: server-scripts
-### share.php
-* og-tags cannot be set dynamically via JavaScript.
-* Use this static site to generate og-tags for sharing on Facebook.
-
 ## plugins
 ### acf-custom-post-template-support.php
 * Plugin for Wordpress (folder wp-content/plugins, then activate in Backend)
@@ -19,6 +15,9 @@
 #### Features
 * Routes for retrieving menu by name: pschild-angular/v1/menu/<MENU_NAME>
 * Additional image sizes. A scaled version of an image is automatically created when uploaded.
+* sharer/sharer.php
+    * og-tags cannot be set dynamically via JavaScript.
+    * Use this static site to generate og-tags for sharing on Facebook.
 
 #### templates
 ##### template-page-....php

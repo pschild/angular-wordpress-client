@@ -5,7 +5,7 @@
 
 export const environment = {
     production: false,
-    staticSharerUrl: 'http://fb.juliaunkrig.de/share.php',
+    staticSharerUrl: 'http://wp.juliaunkrig.de/wp-content/themes/pschild-angular/sharer/sharer.php',
     apiUrl: 'http://wp.juliaunkrig.de/wp-json',
     menuName: 'main',
 
