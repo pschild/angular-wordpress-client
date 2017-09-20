@@ -14,18 +14,23 @@
 * Plugin for Wordpress (folder wp-content/plugins, then activate in Backend)
 * Used to be able to select custom page templates for type "post" (not only page) in combination with "Advanced Custom Fields"
 
-## templates
-### template-page-....php
+## theme
+### pschild-angular
+#### Features
+* Routes for retrieving menu by name: pschild-angular/v1/menu/<MENU_NAME>
+* Additional image sizes. A scaled version of an image is automatically created when uploaded.
+
+#### templates
+##### template-page-....php
 * Templates for Wordpress type "page"
 
-### template-post-....php
+##### template-post-....php
 * Templates for Wordpress type "post"
 
 # Wordpress Plugins
 * [ACF to REST API](http://github.com/airesvsg/acf-to-rest-api): Exposes Advanced Custom Fields Endpoints in the WP REST API v2. Version: 2.2.1
 * [Advanced Custom Fields](https://www.advancedcustomfields.com/): Customise WordPress with powerful, professional and intuitive fields. Version: 4.4.11
 * Support for Custom Post Templates in ACF (see plugins)
-* [WP REST API Menus](https://de.wordpress.org/plugins/wp-api-menus/): Extends WP API with WordPress menu routes. Version: 1.3.1
 
 # Wordpress installation
 
@@ -37,5 +42,5 @@
 
 # Troubleshooting
 
-* Make sure that the menu ID used in environment.ts fits with the menu ID in Wordpress.
+* Make sure that the menu name used in environment.ts fits with the menu name in Wordpress.
 * When using a fresh Wordpress installation and ACFs are not showing up properly when creating a post, try to save the ACFs again.

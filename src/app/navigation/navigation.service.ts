@@ -11,7 +11,7 @@ export class NavigationService {
     }
 
     loadNavigation() {
-        return this.http.get(`${environment.apiUrl}/wp-api-menus/v2/menus/${environment.menuId}`)
+        return this.http.get(`${environment.apiUrl}/pschild-angular/v1/menu/${environment.menuName}`)
             .map(res => res.json());
     }
 
