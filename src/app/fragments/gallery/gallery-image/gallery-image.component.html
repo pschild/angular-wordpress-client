@@ -1,6 +1,0 @@
-<img class="preload-image" src="{{getSourceUrl()}}" (load)="onImageLoaded()"/>
-<label for="image-{{item.id}}">
-    <app-loading-indicator *ngIf="!hasLoaded"></app-loading-indicator>
-    <div class="grid-item" [ngStyle]="{'background-image': 'url(' + getSourceUrl() + ')', 'background-position-x': item.acf['background-x'] + '%', 'background-position-y': item.acf['background-y'] + '%'}"></div>
-    <div class="caption" *ngIf="item.caption.rendered">{{item.caption.rendered}}</div>
-</label>

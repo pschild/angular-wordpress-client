@@ -5,7 +5,10 @@
 <input id="no-selection" type="radio" name="gallery-radios" [value]="-1" [(ngModel)]="activeItemId" (change)="handleSelectionChange()" />
 <div class="grid" [ngClass]="useLegacyGrid ? 'legacy' : 'modern'" *ngIf="items && items.length" infinite-scroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="300" (scrolled)="loadNextPage()">
     <div *ngFor="let item of items; let i = index" class="grid-item-wrapper">
-        <app-gallery-image [item]="item"></app-gallery-image>
+        <label for="image-{{item.id}}">
+            <app-image class="grid-item" [imageItem]="item" [useAsBackground]="true" [height]="'100%'"></app-image>
+            <div class="caption" *ngIf="item.caption.rendered">{{item.caption.rendered}}</div>
+        </label>
 
         <input class="modal-state" id="image-{{item.id}}" type="radio" name="gallery-radios" [value]="item.id" [(ngModel)]="activeItemId" (change)="handleSelectionChange()" />
         <div class="modal">

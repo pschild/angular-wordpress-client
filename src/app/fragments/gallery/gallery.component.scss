@@ -9,6 +9,51 @@
       display: block;
       padding-top: 100%;
     }
+
+    .grid-item {
+      position: absolute;
+      cursor: pointer;
+
+      background-color: #ddd;
+      background-position: 50%;
+      background-size: cover;
+      background-repeat: no-repeat;
+
+      -webkit-filter: blur(0);
+      filter: blur(0);
+
+      &:hover {
+        -webkit-filter: blur(3px);
+        filter: blur(3px);
+
+        & ~ .caption {
+          height: 50px;
+          opacity: .8;
+        }
+      }
+
+      transition: all 0.5s;
+    }
+
+    .caption {
+      position: absolute;
+      bottom: 0;
+      height: 0;
+      margin-top: -100%;
+      background: #000;
+      z-index: 1;
+      color: #fff;
+      opacity: 0;
+
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 50px;
+      white-space: nowrap;
+      width: 90%;
+      padding: 0 5%;
+
+      transition: all 0.5s;
+    }
   }
 }
 
@@ -19,6 +64,13 @@
     width: 16.6666%;
     display: inline-block;
     vertical-align: top;
+
+    .grid-item {
+      width: 98%;
+      height: 98%;
+      top: 1%;
+      left: 1%;
+    }
   }
 }
 
@@ -33,6 +85,12 @@
 
   .grid-item-wrapper {
     width: 100%;
+
+    .grid-item {
+      width: 100%;
+      height: 100%;
+      margin-top: -100%;
+    }
   }
 }
 

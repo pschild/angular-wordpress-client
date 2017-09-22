@@ -1,13 +1,11 @@
 import {Component, Input, OnInit, ChangeDetectionStrategy} from '@angular/core';
-import {Observable} from "rxjs/Observable";
-import {MediaService} from "../../media.service";
 
 @Component({
     selector: 'app-post-preview',
     template: `
         <article class="row">
             <div class="col-lg-3 col-md-4 col-sm-5 col-xs-12">
-                <img class="article-image" *ngIf="postImageUrl$ | async; let postImageUrl" [src]="postImageUrl"/>
+                <app-image [imageId]="postItem.acf.gallery_images[0]" [useAsBackground]="false"></app-image>
             </div>
             <div class="col-lg-9 col-md-8 col-sm-7 col-xs-12">
                 <h2>{{postItem.title.rendered}}</h2>
@@ -23,13 +21,10 @@ export class PostPreviewComponent implements OnInit {
 
     @Input() postItem: any;
 
-    postImageUrl$: Observable<any>;
-
-    constructor(private mediaService: MediaService) {
+    constructor() {
     }
 
     ngOnInit() {
-        this.postImageUrl$ = this.mediaService.loadByIds([this.postItem.acf.gallery_images[0]]).map(images => images[0].source_url);
     }
 
     ellipsizeText(html) {

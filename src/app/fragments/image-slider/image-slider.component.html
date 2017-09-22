@@ -8,7 +8,8 @@
 
     <ul class="sliderElements" [ngStyle]="{'width': items.length * 100 + '%', 'left': -(activeSlideIndex * 100) + '%'}">
         <li *ngFor="let item of items; let i = index" [ngStyle]="{'width': 100 / items.length + '%'}">
-            <div class="slider-image-container" [ngStyle]="{'background-image': 'url(' + getSourceUrl(item) + ')'}" (swipeleft)="setActiveIndex(i + 1)" (swiperight)="setActiveIndex(i - 1)">
+            <div class="slider-image-container" (swipeleft)="setActiveIndex(i + 1)" (swiperight)="setActiveIndex(i - 1)">
+                <app-image [imageItem]="item" [useAsBackground]="true" [height]="'500px'" [useFullVersion]="true"></app-image>
                 <div class="caption">Beschreibung</div>
             </div>
         </li>

@@ -19,10 +19,6 @@ export class ImageSliderComponent implements OnInit {
     ngOnInit() {
     }
 
-    getSourceUrl(item) {
-        return item.media_details.sizes.full.source_url;
-    }
-
     setActiveIndex(newIndex) {
         if (newIndex === this.items.length || newIndex < 0) {
             return;
