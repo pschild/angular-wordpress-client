@@ -188,16 +188,6 @@ input[name=gallery-radios] {
   color: #fff;
 }
 
-.modal__inner .modal-image-wrapper {
-  z-index: 100;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%;
-  height: 90%;
-}
-
 .modal__close {
   position: absolute;
   right: 10px;
@@ -207,7 +197,7 @@ input[name=gallery-radios] {
   cursor: pointer;
   font-size: 35px;
   text-align: center;
-  z-index: 101;
+  z-index: 201;
 }
 
 .modal__next-btn, .modal__prev-btn {
@@ -218,7 +208,7 @@ input[name=gallery-radios] {
   cursor: pointer;
   font-size: 35px;
   text-align: center;
-  z-index: 101;
+  z-index: 201;
 }
 
 .modal__next-btn {

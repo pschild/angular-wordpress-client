@@ -1,6 +1,7 @@
 .image-container {
   max-height: 100%;
   max-width: 100%;
+  z-index: 200;
 }
 
 .background-image-container {
@@ -8,6 +9,7 @@
   background-repeat: no-repeat;
   background-position: 50%;
   width: 100%;
+  z-index: 200;
 }
 
 .center {
