@@ -15,8 +15,11 @@ export class ImageComponent implements OnInit {
     @Input() backgroundProps: {'background-position-x': any, 'background-position-y': any} = null;
     @Input() height: string = '200px';
     @Input() useFullVersion: boolean = false;
+    @Input() center: boolean = false;
 
     @Output() onImageLoaded: EventEmitter<any> = new EventEmitter();
+    @Output() onImageSwipeLeft: EventEmitter<any> = new EventEmitter();
+    @Output() onImageSwipeRight: EventEmitter<any> = new EventEmitter();
 
     loadedImageItem$: BehaviorSubject<any> = new BehaviorSubject(null);
     dataHasLoaded$: BehaviorSubject<boolean> = new BehaviorSubject(false);
@@ -73,6 +76,14 @@ export class ImageComponent implements OnInit {
     onLoaded() {
         this.imageHasLoaded = true;
         this.onImageLoaded.emit();
+    }
+
+    onSwipeLeft() {
+        this.onImageSwipeLeft.emit();
+    }
+
+    onSwipeRight() {
+        this.onImageSwipeRight.emit();
     }
 
 }

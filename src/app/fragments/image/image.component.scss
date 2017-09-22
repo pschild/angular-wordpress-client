@@ -1,5 +1,5 @@
 .image-container {
-  height: auto;
+  max-height: 100%;
   max-width: 100%;
 }
 
@@ -7,4 +7,12 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50%;
+  width: 100%;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
