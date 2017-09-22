@@ -13,7 +13,7 @@ export class MediaService {
     }
 
     loadByIds(ids: Array<number>, page: number = 1) {
-        return this.http.get(`${environment.apiUrl}/wp/v2/media/?page=${page}&per_page=${this.itemsPerPage}&include=${ids.join(',')}`)
+        return this.http.get(`${environment.apiUrl}/wp/v2/media/?page=${page}&per_page=${this.itemsPerPage}&include=${ids.join(',')}&orderby=include&order=asc`)
             .map(res => res.json());
     }
 
