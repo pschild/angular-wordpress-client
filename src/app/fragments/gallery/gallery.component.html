@@ -7,7 +7,7 @@
     <div *ngFor="let item of items; let i = index" class="grid-item-wrapper">
         <label for="image-{{item.id}}">
             <app-image class="grid-item" [imageItem]="item" [useAsBackground]="true" [height]="'100%'"></app-image>
-            <div class="caption" *ngIf="item.caption.rendered">{{item.caption.rendered}}</div>
+            <div class="caption" *ngIf="item.caption.rendered" [innerHtml]="item.caption.rendered | safeHtml"></div>
         </label>
 
         <input class="modal-state" id="image-{{item.id}}" type="radio" name="gallery-radios" [value]="item.id" [(ngModel)]="activeItemId" (change)="handleSelectionChange()" />
