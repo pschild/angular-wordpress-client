@@ -24,6 +24,54 @@ function register_menus() {
 }
 add_action('init', 'register_menus');
 
+// register custom post type and taxonomies
+function post_type_projects() {
+    register_post_type(
+        'timeline',
+        array(
+            'labels' => array(
+                'name' => __( 'Timeline Einträge' ),
+                'singular_name' => __( 'Timeline Eintrag' )
+            ),
+            'public' => true,
+            'supports' => array(
+                'title',
+                'editor'
+            ),
+            'show_in_rest' => true,
+            'menu_icon' => 'dashicons-clock'
+        )
+    );
+
+    register_post_type(
+        'project',
+        array(
+            'labels' => array(
+                'name' => __( 'Projekte' ),
+                'singular_name' => __( 'Projekt' )
+            ),
+            'public' => true,
+            'supports' => array(
+                'title',
+                'editor'
+            ),
+            'show_in_rest' => true,
+            'menu_icon' => 'dashicons-media-code'
+        )
+    );
+
+    register_taxonomy( 'project_categories', 'project',
+        array(
+            'hierarchical' => true,
+            'label' => __('Projekt-Kategorien'),
+            'query_var' => 'project_category',
+            'rewrite' => true,
+            'show_in_rest' => true
+        )
+    );
+}
+add_action('init', 'post_type_projects');
+
 // custom routes
 include_once 'includes/menu-routes-controller.php';
 

@@ -15,6 +15,7 @@
 #### Features
 * Routes for retrieving menu by name: pschild-angular/v1/menu/<MENU_NAME>
 * Additional image sizes. A scaled version of an image is automatically created when uploaded.
+* Adds post types "Timeline" and "Project" (with taxonomies)
 * sharer/sharer.php
     * og-tags cannot be set dynamically via JavaScript.
     * Use this static site to generate og-tags for sharing on Facebook.
