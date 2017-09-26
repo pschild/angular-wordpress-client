@@ -8,27 +8,35 @@ import {TplPostsComponent} from "./page/tpl-posts/tpl-posts.component";
 import {TplPostContentGalleryComponent} from "./post/tpl-post-content-gallery/tpl-post-content-gallery.component";
 import {RouterModule} from "@angular/router";
 import {PipesModule} from "../pipes/pipes.module";
+import {HighlightJsModule, HighlightJsService} from "angular2-highlight-js";
+import {TplPostCodeblocksComponent} from "./post/tpl-post-codeblocks/tpl-post-codeblocks.component";
 
 @NgModule({
     imports: [
         CommonModule,
         FragmentsModule,
         RouterModule,
-        PipesModule
+        PipesModule,
+        HighlightJsModule
     ],
     exports: [
         TplTextComponent,
         TplTextGalleryComponent,
         TplGalleryComponent,
         TplPostsComponent,
-        TplPostContentGalleryComponent
+        TplPostContentGalleryComponent,
+        TplPostCodeblocksComponent
     ],
     declarations: [
         TplTextComponent,
         TplTextGalleryComponent,
         TplGalleryComponent,
         TplPostsComponent,
-        TplPostContentGalleryComponent
+        TplPostContentGalleryComponent,
+        TplPostCodeblocksComponent
+    ],
+    providers: [
+        HighlightJsService
     ]
 })
 export class PageTemplatesModule {

@@ -2,6 +2,7 @@
     <a href="javascript:history.back()">&laquo; Zurück</a>
     <div [ngSwitch]="postData.template">
         <app-tpl-post-content-gallery [postData]="postData" [params]="params" *ngSwitchCase="'template-post-content-gallery.php'"></app-tpl-post-content-gallery>
+        <app-tpl-post-codeblocks [postData]="postData" [params]="params" *ngSwitchCase="'template-post-codeblocks.php'"></app-tpl-post-codeblocks>
     </div>
     <a href="javascript:history.back()">&laquo; Zurück</a>
 </div>

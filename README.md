@@ -3,6 +3,9 @@
 * https://github.com/orizens/angular2-infinite-scroll
 * https://github.com/KoderLabs/ng2-device-detector
 * (https://github.com/zyra/ngx-facebook)
+* https://github.com/jaychase/angular2-highlight-js
+    * Styles: https://highlightjs.org/static/demo/
+    * CDN: https://cdnjs.com/libraries/highlight.js/
 
 # Folder: server-scripts
 ## plugins
@@ -16,6 +19,13 @@
 * Routes for retrieving menu by name: pschild-angular/v1/menu/<MENU_NAME>
 * Additional image sizes. A scaled version of an image is automatically created when uploaded.
 * Adds post types "Timeline" and "Project" (with taxonomies)
+* Shortcodes
+    * [codeblock params]
+        * Params:
+            * language (string): Language of code. [codeblock language=html]
+            * url (string): URL of a file, e.g. [codeblock url=https<nolink>://raw.githubusercontent.com/[...]/script.js]
+            * code (string): Code, e.g. [codeblock code=alert('Hello World')]
+        * Example: [codeblock url=https://raw.githubusercontent.com/pschild/CodeRadarVisualization/master/index.html]
 * sharer/sharer.php
     * og-tags cannot be set dynamically via JavaScript.
     * Use this static site to generate og-tags for sharing on Facebook.

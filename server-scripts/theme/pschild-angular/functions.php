@@ -80,3 +80,19 @@ function register_menu_routes() {
     $controller->register_routes();
 }
 add_action('rest_api_init', 'register_menu_routes');
+
+// register shortcodes
+function codeblock_shortcode( $atts, $content = null ) {
+    $language = $atts['language'];
+    $url = $atts['url'];
+    $code = $atts['code'];
+
+    if (!empty($url)) {
+        $code = file_get_contents($url);
+    }
+
+    $saveCode = htmlspecialchars($code);
+
+    return '<pre><code class="code-highlight ' . $language . '">' . $saveCode . '</code></pre>';
+}
+add_shortcode( 'codeblock', 'codeblock_shortcode' );
