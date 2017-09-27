@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {MediaService} from "../../media.service";
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
 
@@ -12,12 +12,14 @@ export class MediaComponent implements OnInit {
     @Input() mediaItem: any;
 
     @Output() onLoaded: EventEmitter<any> = new EventEmitter();
+    @Output() onMediaSwipeLeft: EventEmitter<any> = new EventEmitter();
+    @Output() onMediaSwipeRight: EventEmitter<any> = new EventEmitter();
 
     loadedMediaItem$: BehaviorSubject<any> = new BehaviorSubject(null);
     dataHasLoaded$: BehaviorSubject<boolean> = new BehaviorSubject(false);
     mediaHasLoaded: boolean = false;
 
-    constructor(private mediaService: MediaService) {
+    constructor(protected el: ElementRef, private mediaService: MediaService) {
     }
 
     ngOnInit() {
@@ -44,6 +46,14 @@ export class MediaComponent implements OnInit {
     onMediaLoaded() {
         this.mediaHasLoaded = true;
         this.onLoaded.emit();
+    }
+
+    onSwipeLeft() {
+        this.onMediaSwipeLeft.emit();
+    }
+
+    onSwipeRight() {
+        this.onMediaSwipeRight.emit();
     }
 
 }

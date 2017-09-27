@@ -30,4 +30,14 @@ export class VideoComponent extends MediaComponent implements OnInit {
         this.onVideoPause.emit();
     }
 
+    onSwipeLeft() {
+        this.el.nativeElement.querySelector('video').pause();
+        super.onSwipeLeft();
+    }
+
+    onSwipeRight() {
+        this.el.nativeElement.querySelector('video').pause();
+        super.onSwipeRight();
+    }
+
 }

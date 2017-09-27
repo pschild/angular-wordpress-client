@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {MediaComponent} from "../media/media.component";
 
 @Component({
@@ -13,9 +13,6 @@ export class ImageComponent extends MediaComponent implements OnInit {
     @Input() height: string = '200px';
     @Input() useFullVersion: boolean = false;
     @Input() center: boolean = false;
-
-    @Output() onImageSwipeLeft: EventEmitter<any> = new EventEmitter();
-    @Output() onImageSwipeRight: EventEmitter<any> = new EventEmitter();
 
     ngOnInit() {
         super.ngOnInit();
@@ -54,14 +51,6 @@ export class ImageComponent extends MediaComponent implements OnInit {
         } else {
             return mediaDetails.sizes.image_grid_landscape.source_url;
         }
-    }
-
-    onSwipeLeft() {
-        this.onImageSwipeLeft.emit();
-    }
-
-    onSwipeRight() {
-        this.onImageSwipeRight.emit();
     }
 
 }
