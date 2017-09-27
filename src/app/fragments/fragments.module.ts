@@ -9,6 +9,7 @@ import {PostPreviewComponent} from "./post-preview/post-preview.component";
 import {RouterModule} from "@angular/router";
 import {PipesModule} from "../pipes/pipes.module";
 import {ImageComponent} from "./image/image.component";
+import {VideoComponent} from "./video/video.component";
 
 @NgModule({
     imports: [
@@ -23,14 +24,16 @@ import {ImageComponent} from "./image/image.component";
         ImageSliderComponent,
         LoadingIndicatorComponent,
         PostPreviewComponent,
-        ImageComponent
+        ImageComponent,
+        VideoComponent
     ],
     declarations: [
         GalleryComponent,
         ImageSliderComponent,
         LoadingIndicatorComponent,
         PostPreviewComponent,
-        ImageComponent
+        ImageComponent,
+        VideoComponent
     ]
 })
 export class FragmentsModule {

@@ -7,6 +7,11 @@ import {environment} from "../environments/environment";
 @Injectable()
 export class MediaService {
 
+    static MIME_TYPE = {
+        IMAGE_JPEG: 'image/jpeg',
+        VIDEO_MP4: 'video/mp4'
+    };
+
     private itemsPerPage = 30;
 
     constructor(private http: Http) {

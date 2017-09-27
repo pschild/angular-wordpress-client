@@ -8,9 +8,13 @@
 
     <ul class="sliderElements" [ngStyle]="{'width': items.length * 100 + '%', 'left': -(activeSlideIndex * 100) + '%'}">
         <li *ngFor="let item of items; let i = index" [ngStyle]="{'width': 100 / items.length + '%'}">
-            <div class="slider-image-container" (swipeleft)="setActiveIndex(i + 1)" (swiperight)="setActiveIndex(i - 1)">
-                <app-image [imageItem]="item" [useAsBackground]="true" [height]="'500px'" [useFullVersion]="true"></app-image>
-                <div class="caption">Beschreibung</div>
+            <div class="slider-image-container" (swipeleft)="setActiveIndex(i + 1)" (swiperight)="setActiveIndex(i - 1)" [ngSwitch]="item.mime_type">
+                <div *ngSwitchCase="MIME_TYPE.IMAGE_JPEG">
+                    <app-image [imageItem]="item" [useAsBackground]="true" [height]="'500px'" [useFullVersion]="true"></app-image>
+                    <div class="caption">Beschreibung</div>
+                </div>
+                <app-video [mediaItem]="item" *ngSwitchCase="MIME_TYPE.VIDEO_MP4"></app-video>
+                <div *ngSwitchDefault="">Unknown mime_type "{{item.mime_type}}"</div>
             </div>
         </li>
     </ul>

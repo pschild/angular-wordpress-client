@@ -1,0 +1,6 @@
+<app-loading-indicator *ngIf="!videoHasLoaded || !(dataHasLoaded$ | async)"></app-loading-indicator>
+
+<video *ngIf="dataHasLoaded$ | async" class="video-container" [controls]="showControls" [autoplay]="enableAutoplay" (loadeddata)="onLoaded()" (play)="onPlay()" (pause)="onPause()">
+    <source [src]="getSourceUrl()" [type]="getVideoType()">
+    Your browser does not support HTML5 video.
+</video>

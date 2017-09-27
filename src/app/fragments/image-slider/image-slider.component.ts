@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {KeyCode} from "../../enums/key-code.enum";
+import {MediaService} from "../../media.service";
 
 @Component({
     selector: 'app-image-slider',
@@ -12,6 +13,8 @@ export class ImageSliderComponent implements OnInit {
     @Input() items: Array<any> = [];
 
     activeSlideIndex: number = 0;
+
+    MIME_TYPE = MediaService.MIME_TYPE;
 
     constructor() {
     }
