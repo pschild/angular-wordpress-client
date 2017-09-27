@@ -10,6 +10,7 @@ import {RouterModule} from "@angular/router";
 import {PipesModule} from "../pipes/pipes.module";
 import {ImageComponent} from "./image/image.component";
 import {VideoComponent} from "./video/video.component";
+import {MediaComponent} from "./media/media.component";
 
 @NgModule({
     imports: [
@@ -33,7 +34,8 @@ import {VideoComponent} from "./video/video.component";
         LoadingIndicatorComponent,
         PostPreviewComponent,
         ImageComponent,
-        VideoComponent
+        VideoComponent,
+        MediaComponent
     ]
 })
 export class FragmentsModule {

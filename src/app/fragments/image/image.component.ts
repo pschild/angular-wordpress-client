@@ -1,53 +1,36 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {MediaService} from "../../media.service";
-import {BehaviorSubject} from "rxjs/BehaviorSubject";
+import {MediaComponent} from "../media/media.component";
 
 @Component({
     selector: 'app-image',
     templateUrl: './image.component.html',
     styleUrls: ['./image.component.scss']
 })
-export class ImageComponent implements OnInit {
+export class ImageComponent extends MediaComponent implements OnInit {
 
-    @Input() imageId: number;
-    @Input() imageItem: any;
     @Input() useAsBackground: boolean = false;
     @Input() backgroundProps: {'background-position-x': any, 'background-position-y': any} = null;
     @Input() height: string = '200px';
     @Input() useFullVersion: boolean = false;
     @Input() center: boolean = false;
 
-    @Output() onImageLoaded: EventEmitter<any> = new EventEmitter();
     @Output() onImageSwipeLeft: EventEmitter<any> = new EventEmitter();
     @Output() onImageSwipeRight: EventEmitter<any> = new EventEmitter();
 
-    loadedImageItem$: BehaviorSubject<any> = new BehaviorSubject(null);
-    dataHasLoaded$: BehaviorSubject<boolean> = new BehaviorSubject(false);
-    imageHasLoaded: boolean = false;
-
-    constructor(private mediaService: MediaService) {
+    ngOnInit() {
+        super.ngOnInit();
     }
 
-    ngOnInit() {
-        if (this.imageId) {
-            this.mediaService.loadByIds([this.imageId]).subscribe(res => {
-                this.loadedImageItem$.next(res[0]);
-                this._setBackgroundProps();
-                this.dataHasLoaded$.next(true);
-            });
-        } else if (this.imageItem) {
-            this.loadedImageItem$.next(this.imageItem);
-            this.dataHasLoaded$.next(true);
-        } else {
-            throw new Error(`No imageId and no imageItem could be found.`);
-        }
+    onDataLoadedById() {
+        this._setBackgroundProps();
+        super.onDataLoadedById();
     }
 
     private _setBackgroundProps() {
-        if (this.loadedImageItem$.getValue() && this.loadedImageItem$.getValue().acf) {
+        if (this.loadedMediaItem$.getValue() && this.loadedMediaItem$.getValue().acf) {
             this.backgroundProps = {
-                'background-position-x': this.loadedImageItem$.getValue().acf['background-x'] + '%',
-                'background-position-y': this.loadedImageItem$.getValue().acf['background-y'] + '%'
+                'background-position-x': this.loadedMediaItem$.getValue().acf['background-x'] + '%',
+                'background-position-y': this.loadedMediaItem$.getValue().acf['background-y'] + '%'
             };
         }
     }
@@ -57,7 +40,7 @@ export class ImageComponent implements OnInit {
     }
 
     getSourceUrl() {
-        let mediaDetails = this.loadedImageItem$.getValue().media_details;
+        let mediaDetails = this.loadedMediaItem$.getValue().media_details;
         if (!mediaDetails) {
             return;
         }
@@ -71,11 +54,6 @@ export class ImageComponent implements OnInit {
         } else {
             return mediaDetails.sizes.image_grid_landscape.source_url;
         }
-    }
-
-    onLoaded() {
-        this.imageHasLoaded = true;
-        this.onImageLoaded.emit();
     }
 
     onSwipeLeft() {

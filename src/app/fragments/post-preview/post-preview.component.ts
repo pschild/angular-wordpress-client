@@ -5,7 +5,7 @@ import {Component, Input, OnInit, ChangeDetectionStrategy} from '@angular/core';
     template: `
         <article class="row">
             <div class="col-lg-3 col-md-4 col-sm-5 col-xs-12">
-                <app-image [imageId]="postItem.acf.gallery_images[0]" [useAsBackground]="false"></app-image>
+                <app-image [mediaId]="postItem.acf.gallery_images[0]" [useAsBackground]="false"></app-image>
             </div>
             <div class="col-lg-9 col-md-8 col-sm-7 col-xs-12">
                 <h2>{{postItem.title.rendered}}</h2>
