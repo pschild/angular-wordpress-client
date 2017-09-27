@@ -3,12 +3,12 @@ import {KeyCode} from "../../enums/key-code.enum";
 import {MediaService} from "../../media.service";
 
 @Component({
-    selector: 'app-image-slider',
+    selector: 'app-media-slider',
     host: {'(window:keyup)': 'handleKeyDown($event)'},
-    templateUrl: './image-slider.component.html',
-    styleUrls: ['./image-slider.component.scss']
+    templateUrl: './media-slider.component.html',
+    styleUrls: ['./media-slider.component.scss']
 })
-export class ImageSliderComponent implements OnInit {
+export class MediaSliderComponent implements OnInit {
 
     @Input() items: Array<any> = [];
 

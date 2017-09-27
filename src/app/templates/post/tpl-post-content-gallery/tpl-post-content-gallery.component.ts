@@ -5,7 +5,7 @@ import {MediaService} from "../../../media.service";
     selector: 'app-tpl-post-content-gallery',
     template: `
         <h2>{{postData.title.rendered}}</h2>
-        <app-image-slider [items]="items"></app-image-slider>
+        <app-media-slider [items]="items"></app-media-slider>
         <p [innerHtml]="postData.acf.content | safeHtml"></p>
     `,
     styleUrls: ['./tpl-post-content-gallery.component.scss']

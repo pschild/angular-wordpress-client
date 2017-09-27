@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {GalleryComponent} from "./gallery/gallery.component";
 import {FormsModule} from "@angular/forms";
 import {InfiniteScrollModule} from "angular2-infinite-scroll";
-import {ImageSliderComponent} from "./image-slider/image-slider.component";
+import {MediaSliderComponent} from "./media-slider/media-slider.component";
 import {LoadingIndicatorComponent} from "./loading-indicator/loading-indicator.component";
 import {PostPreviewComponent} from "./post-preview/post-preview.component";
 import {RouterModule} from "@angular/router";
@@ -21,7 +21,7 @@ import {VideoComponent} from "./video/video.component";
     ],
     exports: [
         GalleryComponent,
-        ImageSliderComponent,
+        MediaSliderComponent,
         LoadingIndicatorComponent,
         PostPreviewComponent,
         ImageComponent,
@@ -29,7 +29,7 @@ import {VideoComponent} from "./video/video.component";
     ],
     declarations: [
         GalleryComponent,
-        ImageSliderComponent,
+        MediaSliderComponent,
         LoadingIndicatorComponent,
         PostPreviewComponent,
         ImageComponent,
