@@ -15,6 +15,7 @@ import {HeaderComponent} from "./header/header.component";
 import {PageService} from "./page/page.service";
 import {MediaService} from "./media.service";
 import {PostService} from "./post/post.service";
+import {TimelineService} from "./fragments/timeline-item/timeline.service";
 
 import 'hammerjs';
 
@@ -38,7 +39,8 @@ import 'hammerjs';
         NavigationService,
         PageService,
         MediaService,
-        PostService
+        PostService,
+        TimelineService
     ],
     bootstrap: [AppComponent]
 })

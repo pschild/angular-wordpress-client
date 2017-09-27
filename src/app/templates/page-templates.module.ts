@@ -9,6 +9,7 @@ import {TplPostContentGalleryComponent} from "./post/tpl-post-content-gallery/tp
 import {RouterModule} from "@angular/router";
 import {PipesModule} from "../pipes/pipes.module";
 import {TplPostCodeblocksComponent} from "./post/tpl-post-codeblocks/tpl-post-codeblocks.component";
+import {TplTimelineComponent} from "./page/tpl-timeline/tpl-timeline.component";
 
 @NgModule({
     imports: [
@@ -23,7 +24,8 @@ import {TplPostCodeblocksComponent} from "./post/tpl-post-codeblocks/tpl-post-co
         TplGalleryComponent,
         TplPostsComponent,
         TplPostContentGalleryComponent,
-        TplPostCodeblocksComponent
+        TplPostCodeblocksComponent,
+        TplTimelineComponent
     ],
     declarations: [
         TplTextComponent,
@@ -31,7 +33,8 @@ import {TplPostCodeblocksComponent} from "./post/tpl-post-codeblocks/tpl-post-co
         TplGalleryComponent,
         TplPostsComponent,
         TplPostContentGalleryComponent,
-        TplPostCodeblocksComponent
+        TplPostCodeblocksComponent,
+        TplTimelineComponent
     ]
 })
 export class PageTemplatesModule {

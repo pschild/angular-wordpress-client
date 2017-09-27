@@ -11,6 +11,7 @@ import {PipesModule} from "../pipes/pipes.module";
 import {ImageComponent} from "./image/image.component";
 import {VideoComponent} from "./video/video.component";
 import {MediaComponent} from "./media/media.component";
+import {TimelineItemComponent} from "./timeline-item/timeline-item.component";
 
 @NgModule({
     imports: [
@@ -26,7 +27,8 @@ import {MediaComponent} from "./media/media.component";
         LoadingIndicatorComponent,
         PostPreviewComponent,
         ImageComponent,
-        VideoComponent
+        VideoComponent,
+        TimelineItemComponent
     ],
     declarations: [
         GalleryComponent,
@@ -35,7 +37,8 @@ import {MediaComponent} from "./media/media.component";
         PostPreviewComponent,
         ImageComponent,
         VideoComponent,
-        MediaComponent
+        MediaComponent,
+        TimelineItemComponent
     ]
 })
 export class FragmentsModule {
