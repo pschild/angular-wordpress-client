@@ -35,7 +35,7 @@ export class VideoComponent implements OnInit {
             this.loadedMediaItem$.next(this.mediaItem);
             this.dataHasLoaded$.next(true);
         } else {
-            throw new Error(`No imageId and no imageItem could be found.`);
+            throw new Error(`No mediaId and no mediaItem could be found.`);
         }
     }
 
