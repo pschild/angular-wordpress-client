@@ -1,3 +1,7 @@
-<div>{{timelineItem.acf.date_from}}</div>
-<div>{{timelineItem.acf.date_to}}</div>
-<div>{{timelineItem.acf.description}}</div>
+<li>
+    <div [ngClass]="direction === 'left' ? 'direction-l' : 'direction-r'">
+        <div *ngIf="dateFromStr && dateToStr">{{dateFromStr | date: 'MM/y'}} - {{dateToStr | date: 'MM/y'}}</div>
+        <div *ngIf="dateFromStr && !dateToStr">seit {{dateFromStr | date: 'MM/y'}}</div>
+        <div [innerHtml]="description | safeHtml" class="description"></div>
+    </div>
+</li>

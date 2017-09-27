@@ -5,7 +5,9 @@ import {Observable} from "rxjs/Observable";
 @Component({
     selector: 'app-tpl-timeline',
     template: `
-        <app-timeline-item *ngFor="let timelineItem of timelineItems$ | async" [timelineItem]="timelineItem"></app-timeline-item>
+        <ul>
+            <app-timeline-item *ngFor="let timelineItem of timelineItems$ | async; let odd=odd;" [timelineItem]="timelineItem" [direction]="odd ? 'left' : 'right'"></app-timeline-item>
+        </ul>
     `,
     styleUrls: ['./tpl-timeline.component.scss']
 })
