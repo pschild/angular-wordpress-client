@@ -1,6 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TimelineService} from "../../../fragments/timeline-item/timeline.service";
 import {Observable} from "rxjs/Observable";
+import {TemplateComponent} from "../../template.component";
 
 @Component({
     selector: 'app-tpl-timeline',
@@ -11,14 +12,12 @@ import {Observable} from "rxjs/Observable";
     `,
     styleUrls: ['./tpl-timeline.component.scss']
 })
-export class TplTimelineComponent implements OnInit {
-
-    @Input() pageData: any;
-    @Input() params: any;
+export class TplTimelineComponent extends TemplateComponent implements OnInit {
 
     timelineItems$: Observable<any>;
 
     constructor(private timelineService: TimelineService) {
+        super();
     }
 
     ngOnInit() {

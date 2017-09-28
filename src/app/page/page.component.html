@@ -1,9 +1,9 @@
 <div *ngIf="pageData$ | async; let pageData" class="container content-container">
     <div [ngSwitch]="pageData.template">
-        <app-tpl-text [pageData]="pageData" [params]="params" *ngSwitchCase="'template-page-content.php'"></app-tpl-text>
-        <app-tpl-gallery [pageData]="pageData" [params]="params" *ngSwitchCase="'template-page-gallery.php'"></app-tpl-gallery>
-        <app-tpl-text-gallery [pageData]="pageData" [params]="params" *ngSwitchCase="'template-page-content-gallery.php'"></app-tpl-text-gallery>
-        <app-tpl-posts [pageData]="pageData" [params]="params" *ngSwitchCase="'template-page-posts.php'"></app-tpl-posts>
-        <app-tpl-timeline [pageData]="pageData" [params]="params" *ngSwitchCase="'template-page-timeline.php'"></app-tpl-timeline>
+        <app-tpl-text [data]="pageData" [params]="params" *ngSwitchCase="'template-page-content.php'"></app-tpl-text>
+        <app-tpl-gallery [data]="pageData" [params]="params" *ngSwitchCase="'template-page-gallery.php'"></app-tpl-gallery>
+        <app-tpl-text-gallery [data]="pageData" [params]="params" *ngSwitchCase="'template-page-content-gallery.php'"></app-tpl-text-gallery>
+        <app-tpl-posts [data]="pageData" [params]="params" *ngSwitchCase="'template-page-posts.php'"></app-tpl-posts>
+        <app-tpl-timeline [data]="pageData" [params]="params" *ngSwitchCase="'template-page-timeline.php'"></app-tpl-timeline>
     </div>
 </div>

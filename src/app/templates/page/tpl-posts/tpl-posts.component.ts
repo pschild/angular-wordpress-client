@@ -1,7 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {PostService} from "../../../post/post.service";
 import {Observable} from "rxjs/Observable";
 import "rxjs/add/observable/forkJoin";
+import {TemplateComponent} from "../../template.component";
 
 @Component({
     selector: 'app-tpl-posts',
@@ -10,19 +11,17 @@ import "rxjs/add/observable/forkJoin";
     `,
     styleUrls: ['./tpl-posts.component.scss']
 })
-export class TplPostsComponent implements OnInit {
-
-    @Input() pageData: any;
-    @Input() params: any;
+export class TplPostsComponent extends TemplateComponent implements OnInit {
 
     postItems$: Observable<any>;
 
     constructor(private postService: PostService) {
+        super();
     }
 
     ngOnInit() {
-        if (this.pageData.acf.posts_of_categories) {
-            this.postItems$ = this.postService.loadByCategoryIds(this.pageData.acf.posts_of_categories.map(category => category.term_id));
+        if (this.data.acf.posts_of_categories) {
+            this.postItems$ = this.postService.loadByCategoryIds(this.data.acf.posts_of_categories.map(category => category.term_id));
         }
     }
 

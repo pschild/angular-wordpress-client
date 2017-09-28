@@ -10,6 +10,7 @@ import {RouterModule} from "@angular/router";
 import {PipesModule} from "../pipes/pipes.module";
 import {TplPostCodeblocksComponent} from "./post/tpl-post-codeblocks/tpl-post-codeblocks.component";
 import {TplTimelineComponent} from "./page/tpl-timeline/tpl-timeline.component";
+import {TemplateComponent} from "./template.component";
 
 @NgModule({
     imports: [
@@ -34,7 +35,8 @@ import {TplTimelineComponent} from "./page/tpl-timeline/tpl-timeline.component";
         TplPostsComponent,
         TplPostContentGalleryComponent,
         TplPostCodeblocksComponent,
-        TplTimelineComponent
+        TplTimelineComponent,
+        TemplateComponent
     ]
 })
 export class PageTemplatesModule {

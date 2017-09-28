@@ -1,21 +1,21 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {TemplateComponent} from "../../template.component";
 
 @Component({
     selector: 'app-tpl-post-codeblocks',
     template: `
-        <app-content-with-codeblock [postItem]="postData"></app-content-with-codeblock>
+        <app-content-with-codeblock [postItem]="data"></app-content-with-codeblock>
     `,
     styleUrls: ['./tpl-post-codeblocks.component.scss']
 })
-export class TplPostCodeblocksComponent implements OnInit {
-
-    @Input() postData: any;
-    @Input() params: any;
+export class TplPostCodeblocksComponent extends TemplateComponent implements OnInit {
 
     constructor() {
+        super();
     }
 
     ngOnInit() {
+        super.ngOnInit();
     }
 
 }

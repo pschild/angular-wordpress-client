@@ -1,19 +1,18 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {TemplateComponent} from "../../template.component";
 
 @Component({
     selector: 'app-tpl-text-gallery',
     template: `
-        <p [innerHtml]="pageData.acf.content | safeHtml"></p>
-        <app-tpl-gallery [pageData]="pageData" [params]="params"></app-tpl-gallery>
+        <p [innerHtml]="data.acf.content | safeHtml"></p>
+        <app-tpl-gallery [data]="data" [params]="params"></app-tpl-gallery>
     `,
     styleUrls: ['./tpl-text-gallery.component.scss']
 })
-export class TplTextGalleryComponent implements OnInit {
-
-    @Input() pageData: any;
-    @Input() params: any;
+export class TplTextGalleryComponent extends TemplateComponent implements OnInit {
 
     constructor() {
+        super();
     }
 
     ngOnInit() {

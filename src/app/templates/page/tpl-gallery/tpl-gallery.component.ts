@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MediaService} from "../../../media.service";
+import {TemplateComponent} from "../../template.component";
 
 @Component({
     selector: 'app-tpl-gallery',
@@ -9,20 +10,18 @@ import {MediaService} from "../../../media.service";
     `,
     styleUrls: ['./tpl-gallery.component.scss']
 })
-export class TplGalleryComponent implements OnInit {
-
-    @Input() pageData: any;
-    @Input() params: any;
+export class TplGalleryComponent extends TemplateComponent implements OnInit {
 
     items: Array<any> = [];
     page: number = 1;
     hasLoaded: boolean = false;
 
     constructor(private mediaService: MediaService) {
+        super();
     }
 
     ngOnInit() {
-        if (this.pageData.acf.gallery_images) {
+        if (this.data.acf.gallery_images) {
             this.loadPage(1);
         }
     }
@@ -33,8 +32,8 @@ export class TplGalleryComponent implements OnInit {
     }
 
     loadPage(page) {
-        if (this.items.length < this.pageData.acf.gallery_images.length) {
-            this.mediaService.loadByIds(this.pageData.acf.gallery_images, page).subscribe(res => {
+        if (this.items.length < this.data.acf.gallery_images.length) {
+            this.mediaService.loadByIds(this.data.acf.gallery_images, page).subscribe(res => {
                 this.items = this.items.concat(res);
                 this.checkDeeplink(page);
             });
