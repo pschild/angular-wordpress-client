@@ -10,7 +10,7 @@ import {MediaService} from "../../media.service";
 })
 export class MediaSliderComponent implements OnInit {
 
-    @Input() items: Array<any> = [];
+    @Input() mediaItems: Array<any> = [];
 
     activeSlideIndex: number = 0;
 
@@ -23,10 +23,22 @@ export class MediaSliderComponent implements OnInit {
     }
 
     setActiveIndex(newIndex) {
-        if (newIndex === this.items.length || newIndex < 0) {
+        if (newIndex === this.mediaItems.length || newIndex < 0) {
             return;
         }
         this.activeSlideIndex = newIndex;
+    }
+
+    calcSliderWidth() {
+        if (this.mediaItems) {
+            return (this.mediaItems.length * 100) + '%';
+        }
+    }
+
+    calcItemWidth() {
+        if (this.mediaItems) {
+            return (100 / this.mediaItems.length) + '%';
+        }
     }
 
     handleKeyDown(event: KeyboardEvent) {
