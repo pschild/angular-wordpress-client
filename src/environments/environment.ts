@@ -3,12 +3,16 @@
 // `ng build --env=prod` then `environment.prod.ts` will be used instead.
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
+import Config from "../app/config";
+
 export const environment = {
     production: false,
-    staticSharerUrl: 'http://wp.juliaunkrig.de/wp-content/themes/pschild-angular/sharer/sharer.php',
-    apiUrl: 'http://wp.juliaunkrig.de/wp-json',
-    menuName: 'main',
 
-    facebookUrl: 'https://www.facebook.com/',
-    instagramUrl: 'https://www.instagram.com/?hl=de'
+    // read from config.ts
+    pageTitle: Config.pageTitle,
+    staticSharerUrl: Config.staticSharerUrl,
+    apiUrl: Config.apiUrl,
+    menuName: Config.menuName,
+    facebookUrl: Config.facebookUrl,
+    instagramUrl: Config.instagramUrl
 };

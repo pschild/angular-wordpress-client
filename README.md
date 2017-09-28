@@ -1,4 +1,8 @@
-# Angular Plugins
+# Angular
+## Configuration
+You need to create a copy of src/app/config.template.ts and name it config.ts. Replace all attributes so that they fit to your personal needs/installation.
+
+## Plugins
 * https://github.com/orizens/angular2-infinite-scroll
 * https://github.com/KoderLabs/ng2-device-detector
 * (https://github.com/zyra/ngx-facebook)
