@@ -1,30 +1,21 @@
-import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewEncapsulation} from '@angular/core';
-
-import * as hljs from 'highlight.js';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
     selector: 'app-tpl-post-codeblocks',
     template: `
-        <h2>{{postData.title.rendered}}</h2>
-        <p [innerHtml]="postData.acf.content | safeHtml"></p>
+        <app-content-with-codeblock [postItem]="postData"></app-content-with-codeblock>
     `,
-    styleUrls: ['./tpl-post-codeblocks.component.scss'],
-    encapsulation: ViewEncapsulation.None
+    styleUrls: ['./tpl-post-codeblocks.component.scss']
 })
-export class TplPostCodeblocksComponent implements OnInit, AfterViewInit {
+export class TplPostCodeblocksComponent implements OnInit {
 
     @Input() postData: any;
     @Input() params: any;
 
-    constructor(private el: ElementRef) {
+    constructor() {
     }
 
     ngOnInit() {
-    }
-
-    ngAfterViewInit(): void {
-        let codeBlockElements = [].slice.call(this.el.nativeElement.querySelectorAll('.code-highlight'));
-        codeBlockElements.map(codeBlockEl => hljs.highlightBlock(codeBlockEl));
     }
 
 }

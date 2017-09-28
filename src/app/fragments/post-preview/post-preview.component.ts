@@ -5,7 +5,7 @@ import {Component, Input, OnInit, ChangeDetectionStrategy} from '@angular/core';
     template: `
         <article class="row">
             <div class="col-lg-3 col-md-4 col-sm-5 col-xs-12">
-                <app-image [mediaId]="postItem.acf.gallery_images[0]" [useAsBackground]="false"></app-image>
+                <app-image *ngIf="getPreviewImage()" [mediaId]="getPreviewImage()" [useAsBackground]="false"></app-image>
             </div>
             <div class="col-lg-9 col-md-8 col-sm-7 col-xs-12">
                 <h2>{{postItem.title.rendered}}</h2>
@@ -25,6 +25,12 @@ export class PostPreviewComponent implements OnInit {
     }
 
     ngOnInit() {
+    }
+
+    getPreviewImage() {
+        if (this.postItem.acf.gallery_images && this.postItem.acf.gallery_images.length) {
+            return this.postItem.acf.gallery_images[0];
+        }
     }
 
     ellipsizeText(html) {
