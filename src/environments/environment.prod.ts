@@ -5,6 +5,7 @@ export const environment = {
 
     // read from config.ts
     pageTitle: Config.pageTitle,
+    homePageName: Config.homePageName,
     staticSharerUrl: Config.staticSharerUrl,
     apiUrl: Config.apiUrl,
     menuName: Config.menuName,

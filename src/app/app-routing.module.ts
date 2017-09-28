@@ -3,9 +3,10 @@ import {Routes, RouterModule} from '@angular/router';
 import {APP_BASE_HREF} from "@angular/common";
 import {PageComponent} from "./page/page.component";
 import {PostComponent} from "./post/post.component";
+import {environment} from "../environments/environment";
 
 const routes: Routes = [
-    { path: '', redirectTo: '/ueber-mich', pathMatch: 'full' },
+    { path: '', redirectTo: `/${environment.homePageName}`, pathMatch: 'full' },
     { path: ':shortTitle', component: PageComponent },
     { path: ':shortTitle/gallery/:imageId', component: PageComponent },
     { path: ':shortTitle/post/:postId', component: PostComponent }

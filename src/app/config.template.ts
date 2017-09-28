@@ -1,6 +1,7 @@
 export default class Config {
 
     static pageTitle: string = 'BLOG TITLE';
+    static homePageName: string = 'SLUG OF HOME PAGE';
 
     static staticSharerUrl: string = 'http://BLOG_URL/wp-content/themes/pschild-angular/sharer/sharer.php';
     static apiUrl: string = 'http://BLOG_URL/wp-json';
