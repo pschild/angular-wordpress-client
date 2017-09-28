@@ -12,7 +12,7 @@ import {environment} from "../../../environments/environment";
 })
 export class GalleryComponent implements OnInit {
 
-    @Input() items: Array<any> = [];
+    @Input() imageItems: Array<any> = [];
     @Output() onLoadNextPage: EventEmitter<any> = new EventEmitter();
     private _activeItemId: number;
 
@@ -70,14 +70,14 @@ export class GalleryComponent implements OnInit {
     }
 
     getNextItemByItemId(itemId: number) {
-        let index = this.items.map(item => item.id).indexOf(itemId);
+        let index = this.imageItems.map(item => item.id).indexOf(itemId);
         if (index >= 0) {
             return this.getNextItemByIndex(index);
         }
     }
 
     getPreviousItemByItemId(itemId: number) {
-        let index = this.items.map(item => item.id).indexOf(itemId);
+        let index = this.imageItems.map(item => item.id).indexOf(itemId);
         if (index >= 0) {
             return this.getPreviousItemByIndex(index);
         }
@@ -85,24 +85,24 @@ export class GalleryComponent implements OnInit {
 
     getNextItemByIndex(index: number) {
         let nextIndex;
-        if (index >= this.items.length - 1) {
+        if (index >= this.imageItems.length - 1) {
             nextIndex = 0;
         } else {
             nextIndex = index + 1;
         }
 
-        return this.items[nextIndex];
+        return this.imageItems[nextIndex];
     }
 
     getPreviousItemByIndex(index: number) {
         let prevIndex;
         if (index === 0) {
-            prevIndex = this.items.length - 1;
+            prevIndex = this.imageItems.length - 1;
         } else {
             prevIndex = index - 1;
         }
 
-        return this.items[prevIndex];
+        return this.imageItems[prevIndex];
     }
 
     loadNextPage() {

@@ -6,13 +6,14 @@ import {TemplateComponent} from "../../template.component";
     selector: 'app-tpl-gallery',
     template: `
         <app-loading-indicator [size]="100" *ngIf="!hasLoaded"></app-loading-indicator>
-        <app-gallery [items]="items" [activeItemId]="params.imageId" (onLoadNextPage)="loadNextPage()" [ngStyle]="{'display': hasLoaded ? 'block' : 'none'}"></app-gallery>
+        <app-gallery [imageItems]="imageItems" [activeItemId]="params.imageId" (onLoadNextPage)="loadNextPage()"
+                     [ngStyle]="{'display': hasLoaded ? 'block' : 'none'}"></app-gallery>
     `,
     styleUrls: ['./tpl-gallery.component.scss']
 })
 export class TplGalleryComponent extends TemplateComponent implements OnInit {
 
-    items: Array<any> = [];
+    imageItems: Array<any> = [];
     page: number = 1;
     hasLoaded: boolean = false;
 
@@ -32,16 +33,16 @@ export class TplGalleryComponent extends TemplateComponent implements OnInit {
     }
 
     loadPage(page) {
-        if (this.items.length < this.data.acf.gallery_images.length) {
+        if (this.imageItems.length < this.data.acf.gallery_images.length) {
             this.mediaService.loadByIds(this.data.acf.gallery_images, page).subscribe(res => {
-                this.items = this.items.concat(res);
-                this.checkDeeplink(page);
+                this.imageItems = this.imageItems.concat(res);
+                this.checkDeeplink();
             });
         }
     }
 
-    checkDeeplink(page) {
-        if (this.params.imageId && this.items.map(item => item.id).indexOf(+this.params.imageId) < 0) {
+    checkDeeplink() {
+        if (this.params.imageId && this.imageItems.map(item => item.id).indexOf(+this.params.imageId) < 0) {
             this.loadNextPage();
         } else {
             this.hasLoaded = true;
