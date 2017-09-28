@@ -13,6 +13,7 @@ import {VideoComponent} from "./video/video.component";
 import {MediaComponent} from "./media/media.component";
 import {TimelineItemComponent} from "./timeline-item/timeline-item.component";
 import {ContentWithCodeblockComponent} from "./content-with-codeblock/content-with-codeblock.component";
+import {ProjectItemComponent} from "./project-item/project-item.component";
 
 @NgModule({
     imports: [
@@ -30,7 +31,8 @@ import {ContentWithCodeblockComponent} from "./content-with-codeblock/content-wi
         ImageComponent,
         VideoComponent,
         TimelineItemComponent,
-        ContentWithCodeblockComponent
+        ContentWithCodeblockComponent,
+        ProjectItemComponent
     ],
     declarations: [
         GalleryComponent,
@@ -41,7 +43,8 @@ import {ContentWithCodeblockComponent} from "./content-with-codeblock/content-wi
         VideoComponent,
         MediaComponent,
         TimelineItemComponent,
-        ContentWithCodeblockComponent
+        ContentWithCodeblockComponent,
+        ProjectItemComponent
     ]
 })
 export class FragmentsModule {

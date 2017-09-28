@@ -18,6 +18,7 @@ import {PostService} from "./post/post.service";
 import {TimelineService} from "./fragments/timeline-item/timeline.service";
 
 import 'hammerjs';
+import {ProjectService} from "./fragments/project-item/project.service";
 
 @NgModule({
     declarations: [
@@ -40,7 +41,8 @@ import 'hammerjs';
         PageService,
         MediaService,
         PostService,
-        TimelineService
+        TimelineService,
+        ProjectService
     ],
     bootstrap: [AppComponent]
 })

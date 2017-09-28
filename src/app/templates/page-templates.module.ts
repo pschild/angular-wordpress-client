@@ -11,6 +11,7 @@ import {PipesModule} from "../pipes/pipes.module";
 import {TplPostCodeblocksComponent} from "./post/tpl-post-codeblocks/tpl-post-codeblocks.component";
 import {TplTimelineComponent} from "./page/tpl-timeline/tpl-timeline.component";
 import {TemplateComponent} from "./template.component";
+import {TplProjectsComponent} from "./page/tpl-projects/tpl-projects.component";
 
 @NgModule({
     imports: [
@@ -26,7 +27,8 @@ import {TemplateComponent} from "./template.component";
         TplPostsComponent,
         TplPostContentGalleryComponent,
         TplPostCodeblocksComponent,
-        TplTimelineComponent
+        TplTimelineComponent,
+        TplProjectsComponent
     ],
     declarations: [
         TplTextComponent,
@@ -36,7 +38,8 @@ import {TemplateComponent} from "./template.component";
         TplPostContentGalleryComponent,
         TplPostCodeblocksComponent,
         TplTimelineComponent,
-        TemplateComponent
+        TemplateComponent,
+        TplProjectsComponent
     ]
 })
 export class PageTemplatesModule {
