@@ -96,3 +96,7 @@ function codeblock_shortcode( $atts, $content = null ) {
     return '<pre><code class="code-highlight ' . $language . '">' . $saveCode . '</code></pre>';
 }
 add_shortcode( 'codeblock', 'codeblock_shortcode' );
+
+// enable post templates at ACF
+include_once 'includes/acf-post-template-manager.php';
+$manager = new AcfPostTemplateManager();
