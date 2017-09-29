@@ -3,6 +3,7 @@ import {Location} from '@angular/common';
 import {Ng2DeviceService} from "ng2-device-detector";
 import {KeyCode} from "../../enums/key-code.enum";
 import {environment} from "../../../environments/environment";
+import {ShareParams} from "../../interfaces/share-params";
 
 @Component({
     selector: 'app-gallery',
@@ -123,7 +124,7 @@ export class GalleryComponent implements OnInit {
     }
 
     shareOnFacebook(item) {
-        let params = {
+        let params: ShareParams = {
             title: item.title.rendered,
             description: item.caption.rendered,
             imageUrl: item.source_url,
