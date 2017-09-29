@@ -2,6 +2,26 @@
 ## Configuration
 You need to create a copy of src/app/config.template.ts and name it config.ts. Replace all attributes so that they fit to your personal needs/installation.
 
+## Create a new Application
+1. Copy object in .angular-cli.json ```{ "root": ...``` to ```"environments": {...} }```
+2. Define custom properties for
+    * main (```app.APPNAME.ts```)
+    * styles
+    * scripts
+    * (environments)
+3. Create file ```app.APPNAME.ts``` and exchange module to boot:
+
+    ```import {AppAPPNAMEModule} from "./app/custom/APPNAME/app.APPNAME.module";```
+
+    [...]
+
+    ```platformBrowserDynamic().bootstrapModule(AppAPPNAMEModule);```
+4. Create folder ```custom/APPNAME/``` and file ```custom/APPNAME/app.APPNAME.module.ts```
+5. Call this module ```AppAPPNAMEModule``` and adjust ```providers```, ```declarations``` and ```imports``` to fit your apps needs.
+
+   Remember to import the correct modules and components (mind the import path) in case you overwrite the default ones.
+6. In case you want to overwrite default components, apply their folder structure in ```custom/APPNAME``` and overwrite.
+
 ## Plugins
 * https://github.com/orizens/angular2-infinite-scroll
 * https://github.com/KoderLabs/ng2-device-detector
