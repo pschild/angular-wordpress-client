@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {TplTextComponent} from "./tpl-text/tpl-text.component";
 import {PipesModule} from "../shared/pipes/pipes.module";
+import {TextComponent} from "./text/text.component";
 
 @NgModule({
     imports: [
@@ -9,10 +10,12 @@ import {PipesModule} from "../shared/pipes/pipes.module";
         PipesModule
     ],
     declarations: [
-        TplTextComponent
+        TplTextComponent,
+        TextComponent
     ],
     exports: [
-        TplTextComponent
+        TplTextComponent,
+        TextComponent
     ]
 })
 export class TextModule {

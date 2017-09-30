@@ -4,7 +4,7 @@ import {TemplateComponent} from "../../core/template/template.component";
 @Component({
     selector: 'app-tpl-text-gallery',
     template: `
-        <p [innerHtml]="data.acf.content | safeHtml"></p>
+        <app-text [data]="data"></app-text>
         <app-tpl-gallery [data]="data" [params]="params"></app-tpl-gallery>
     `,
     styleUrls: ['./tpl-text-gallery.component.scss']
