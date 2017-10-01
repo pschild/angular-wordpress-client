@@ -1,10 +1,12 @@
-<div *ngIf="pageData$ | async; let pageData" class="container content-container">
-    <div [ngSwitch]="pageData.template">
-        <app-tpl-text [data]="pageData" [params]="params" *ngSwitchCase="'template-page-content.php'"></app-tpl-text>
-        <app-tpl-gallery [data]="pageData" [params]="params" *ngSwitchCase="'template-page-gallery.php'"></app-tpl-gallery>
-        <app-tpl-text-gallery [data]="pageData" [params]="params" *ngSwitchCase="'template-page-content-gallery.php'"></app-tpl-text-gallery>
-        <app-tpl-posts [data]="pageData" [params]="params" *ngSwitchCase="'template-page-posts.php'"></app-tpl-posts>
-        <app-tpl-projects [data]="pageData" [params]="params" *ngSwitchCase="'template-page-projects.php'"></app-tpl-projects>
-        <app-tpl-timeline [data]="pageData" [params]="params" *ngSwitchCase="'template-page-timeline.php'"></app-tpl-timeline>
-    </div>
+<div *ngIf="pageData" class="container content-container">
+    <!--<ng-container [ngComponentOutlet]="component" [ndcDynamicInputs]="inputs"></ng-container>-->
+    <ng-container *ngFor="let component of components" [ngComponentOutlet]="component" [ndcDynamicInputs]="inputs"></ng-container>
+    <!--<div [ngSwitch]="pageData.template">-->
+        <!--<app-tpl-text [data]="pageData" [params]="params" *ngSwitchCase="'template-page-content.php'"></app-tpl-text>-->
+        <!--<app-tpl-gallery [data]="pageData" [params]="params" *ngSwitchCase="'template-page-gallery.php'"></app-tpl-gallery>-->
+        <!--<app-tpl-text-gallery [data]="pageData" [params]="params" *ngSwitchCase="'template-page-content-gallery.php'"></app-tpl-text-gallery>-->
+        <!--<app-tpl-posts [data]="pageData" [params]="params" *ngSwitchCase="'template-page-posts.php'"></app-tpl-posts>-->
+        <!--<app-tpl-projects [data]="pageData" [params]="params" *ngSwitchCase="'template-page-projects.php'"></app-tpl-projects>-->
+        <!--<app-tpl-timeline [data]="pageData" [params]="params" *ngSwitchCase="'template-page-timeline.php'"></app-tpl-timeline>-->
+    <!--</div>-->
 </div>

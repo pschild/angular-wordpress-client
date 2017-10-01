@@ -16,6 +16,8 @@ import {TimelineModule} from "../timeline/timeline.module";
 import {CodeblockModule} from "../codeblock/codeblock.module";
 import {TextWithMediaSliderModule} from "../text-with-media-slider/text-with-media-slider.module";
 import {FormsModule} from "@angular/forms";
+import {TplTextComponent} from "../text/tpl-text/tpl-text.component";
+import {DynamicModule} from "ng-dynamic-component";
 
 @NgModule({
     imports: [
@@ -30,7 +32,8 @@ import {FormsModule} from "@angular/forms";
         PostsModule,
         TimelineModule,
         CodeblockModule,
-        TextWithMediaSliderModule
+        TextWithMediaSliderModule,
+        DynamicModule.withComponents([TplTextComponent])
     ],
     declarations: [
         TemplateComponent,
@@ -46,6 +49,9 @@ import {FormsModule} from "@angular/forms";
     providers: [
         PageService,
         PostService
+    ],
+    entryComponents: [
+        TplTextComponent
     ]
 })
 export class CoreModule {
