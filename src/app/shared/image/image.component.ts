@@ -37,6 +37,10 @@ export class ImageComponent extends MediaComponent implements OnInit {
     }
 
     getSourceUrl() {
+        if (!this.loadedMediaItem$.getValue()) {
+            return;
+        }
+
         let mediaDetails = this.loadedMediaItem$.getValue().media_details;
         if (!mediaDetails) {
             return;

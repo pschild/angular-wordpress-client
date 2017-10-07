@@ -1,6 +1,6 @@
-<app-loading-indicator *ngIf="!mediaHasLoaded || !(dataHasLoaded$ | async)"></app-loading-indicator>
+<app-loading-indicator *ngIf="(!mediaHasLoaded || !(dataHasLoaded$ | async)) && getSourceUrl()"></app-loading-indicator>
 
-<img *ngIf="dataHasLoaded$ | async"
+<img *ngIf="(dataHasLoaded$ | async) && getSourceUrl()"
      [ngClass]="{'image-container': true, 'center': center}"
      [src]="getSourceUrl()"
      [ngStyle]="{'display': useAsBackground ? 'none' : 'block'}"
@@ -9,7 +9,7 @@
      (swiperight)="onSwipeRight()"
 />
 
-<div *ngIf="useAsBackground && (dataHasLoaded$ | async) && mediaHasLoaded"
+<div *ngIf="getSourceUrl() && useAsBackground && (dataHasLoaded$ | async) && mediaHasLoaded"
      [ngClass]="{'background-image-container': true, 'center': center}"
      [ngStyle]="getBackgroundStyle()"
      (swipeleft)="onSwipeLeft()"
