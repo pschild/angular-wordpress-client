@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {TemplateComponent} from "./template/template.component";
 import {PostComponent} from "./post/post.component";
 import {PageComponent} from "./page/page.component";
 import {NavigationModule} from "./navigation/navigation.module";
@@ -33,7 +32,6 @@ const libConfig: NgwtConfig = {
         TplGalleryModule.forRoot()
     ],
     declarations: [
-        TemplateComponent,
         PostComponent,
         PageComponent,
         HeaderComponent
