@@ -4,7 +4,7 @@ import {FormsModule} from "@angular/forms";
 import {SharedModule} from "../../shared/shared.module";
 import {GalleryComponent} from "./gallery.component";
 import {PipesModule} from "../../shared/pipes/pipes.module";
-import {InfiniteScrollModule} from "angular2-infinite-scroll";
+import {InfiniteScrollModule} from "ngx-infinite-scroll";
 
 import 'hammerjs';
 
