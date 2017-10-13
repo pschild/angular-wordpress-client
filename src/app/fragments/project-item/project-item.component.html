@@ -1,8 +1,0 @@
-<div>
-    <h2>{{projectItem.title.rendered}}</h2>
-    <p [innerHtml]="projectItem.acf.content | safeHtml"></p>
-    <app-media-slider [mediaItems]="mediaItems$ | async"></app-media-slider>
-    <ul>
-        <li *ngFor="let categoryId of projectItem.project_categories">{{categoryId}}</li>
-    </ul>
-</div>

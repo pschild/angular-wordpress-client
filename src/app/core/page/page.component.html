@@ -1,10 +1,8 @@
 <div *ngIf="pageData$ | async; let pageData" class="container content-container">
     <div [ngSwitch]="pageData.template">
-        <app-tpl-text [data]="pageData" [params]="params" *ngSwitchCase="'template-page-content.php'"></app-tpl-text>
-        <app-tpl-gallery [data]="pageData" [params]="params" *ngSwitchCase="'template-page-gallery.php'"></app-tpl-gallery>
-        <app-tpl-text-gallery [data]="pageData" [params]="params" *ngSwitchCase="'template-page-content-gallery.php'"></app-tpl-text-gallery>
-        <app-tpl-posts [data]="pageData" [params]="params" *ngSwitchCase="'template-page-posts.php'"></app-tpl-posts>
-        <app-tpl-projects [data]="pageData" [params]="params" *ngSwitchCase="'template-page-projects.php'"></app-tpl-projects>
-        <app-tpl-timeline [data]="pageData" [params]="params" *ngSwitchCase="'template-page-timeline.php'"></app-tpl-timeline>
+        <ngwt-tpl-text [data]="pageData" [params]="params" *ngSwitchCase="'template-page-content.php'"></ngwt-tpl-text>
+        <ngwt-tpl-gallery [data]="pageData" [params]="params" *ngSwitchCase="'template-page-gallery.php'"></ngwt-tpl-gallery>
+        <ngwt-tpl-text-gallery [data]="pageData" [params]="params" *ngSwitchCase="'template-page-content-gallery.php'"></ngwt-tpl-text-gallery>
+        <ngwt-tpl-posts [data]="pageData" [params]="params" *ngSwitchCase="'template-page-posts.php'"></ngwt-tpl-posts>
     </div>
 </div>

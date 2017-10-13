@@ -1,8 +1,7 @@
 <div *ngIf="postData$ | async; let postData" class="container content-container">
     <a href="javascript:history.back()">&laquo; Zurück</a>
     <div [ngSwitch]="postData.template">
-        <app-tpl-text-media-slider [data]="postData" [params]="params" *ngSwitchCase="'template-post-content-gallery.php'"></app-tpl-text-media-slider>
-        <app-tpl-codeblocks [data]="postData" [params]="params" *ngSwitchCase="'template-post-codeblocks.php'"></app-tpl-codeblocks>
+        <ngwt-tpl-text-media-slider [data]="postData" [params]="params" *ngSwitchCase="'template-post-content-gallery.php'"></ngwt-tpl-text-media-slider>
     </div>
     <a href="javascript:history.back()">&laquo; Zurück</a>
 </div>
