@@ -19,7 +19,8 @@ export function ngwtConfigFactory(): NgwtConfig {
 
 export function ngwsConfigFactory(): NgwsConfig {
     return {
-        apiUrl: environment.apiUrl
+        apiUrl: environment.apiUrl,
+        menuName: environment.menuName
     };
 }
 
