@@ -13,10 +13,12 @@ import {
 } from "ng-wordpress-templates";
 import {environment} from "../../environments/environment";
 
-const libConfig: NgwtConfig = {
-    apiUrl: environment.apiUrl,
-    staticSharerUrl: environment.staticSharerUrl
-};
+export function ngwtConfigFactory(): NgwtConfig {
+    return {
+        apiUrl: environment.apiUrl,
+        staticSharerUrl: environment.staticSharerUrl
+    };
+}
 
 @NgModule({
     imports: [
@@ -46,7 +48,7 @@ const libConfig: NgwtConfig = {
         PostService,
         {
             provide: NGWT_CONFIG,
-            useValue: libConfig
+            useFactory: ngwtConfigFactory
         }
     ]
 })
