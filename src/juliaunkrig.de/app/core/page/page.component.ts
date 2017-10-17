@@ -1,9 +1,9 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {PageService} from "./page.service";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {Observable} from "rxjs/Observable";
 import {Subscription} from "rxjs/Subscription";
 import {environment} from "../../../environments/environment";
+import {PageService} from "ng-wordpress-services";
 
 @Component({
     selector: 'app-page',

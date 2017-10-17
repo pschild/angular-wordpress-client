@@ -4,19 +4,22 @@ import {PostComponent} from "./post/post.component";
 import {PageComponent} from "./page/page.component";
 import {NavigationModule} from "./navigation/navigation.module";
 import {HeaderComponent} from "./header/header.component";
-import {PageService} from "./page/page.service";
-import {PostService} from "./post/post.service";
 import {FormsModule} from "@angular/forms";
-import {
-    NGWT_CONFIG, NgwtConfig, TplGalleryModule, TplPostsModule, TplTextGalleryModule, TplTextMediaSliderModule,
-    TplTextModule
-} from "ng-wordpress-templates";
 import {environment} from "../../environments/environment";
+
+import {NGWT_CONFIG, NgwtConfig, TplGalleryModule, TplPostsModule, TplTextGalleryModule, TplTextMediaSliderModule, TplTextModule} from "ng-wordpress-templates";
+import {NGWS_CONFIG, NgwsConfig, NgWordpressServicesModule} from "ng-wordpress-services";
 
 export function ngwtConfigFactory(): NgwtConfig {
     return {
         apiUrl: environment.apiUrl,
         staticSharerUrl: environment.staticSharerUrl
+    };
+}
+
+export function ngwsConfigFactory(): NgwsConfig {
+    return {
+        apiUrl: environment.apiUrl
     };
 }
 
@@ -26,6 +29,8 @@ export function ngwtConfigFactory(): NgwtConfig {
         FormsModule,
 
         NavigationModule,
+
+        NgWordpressServicesModule.forRoot(),
 
         TplTextModule.forRoot(),
         TplPostsModule.forRoot(),
@@ -44,11 +49,13 @@ export function ngwtConfigFactory(): NgwtConfig {
         HeaderComponent
     ],
     providers: [
-        PageService,
-        PostService,
         {
             provide: NGWT_CONFIG,
             useFactory: ngwtConfigFactory
+        },
+        {
+            provide: NGWS_CONFIG,
+            useFactory: ngwsConfigFactory
         }
     ]
 })
