@@ -1,0 +1,9 @@
+<div class="navigation" [ngClass]="{'menu-open': menuIsOpen}">
+    <div class="menu-trigger" (click)="handleMenuTriggerClicked()">
+        <span></span>
+    </div>
+    <div class="menu-mask" (click)="handleMaskClicked()"></div>
+    <nav>
+        <app-navigation-tree [items]="navigationStructure$ | async" (linkClickedEvent)="handleLinkClicked($event)"></app-navigation-tree>
+    </nav>
+</div>

@@ -1,0 +1,38 @@
+.header-container {
+  position: fixed;
+  height: 100px;
+  width: 100%;
+  top: 0;
+  background: #fff;
+  z-index: 1000;
+
+  .logo-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .social-links-container {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+
+    & > ul > li {
+      list-style: none;
+      font-size: 25px;
+      display: inline-block;
+      width: 40px;
+      text-align: center;
+
+      & > a {
+        display: block;
+        color: #000;
+        &:active, &:visited {
+          color: #000;
+        }
+      }
+    }
+  }
+}

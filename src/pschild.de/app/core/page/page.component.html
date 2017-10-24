@@ -1,0 +1,8 @@
+<div *ngIf="pageData$ | async; let pageData" class="container content-container">
+    <div [ngSwitch]="pageData.template">
+        <ngwt-tpl-text [data]="pageData" [params]="params" *ngSwitchCase="'template-page-content.php'"></ngwt-tpl-text>
+        <ngwt-tpl-posts [data]="pageData" [params]="params" *ngSwitchCase="'template-page-posts.php'"></ngwt-tpl-posts>
+        <ngwt-tpl-projects [data]="pageData" [params]="params" *ngSwitchCase="'template-page-projects.php'"></ngwt-tpl-projects>
+        <ngwt-tpl-timeline [data]="pageData" [params]="params" *ngSwitchCase="'template-page-timeline.php'"></ngwt-tpl-timeline>
+    </div>
+</div>
