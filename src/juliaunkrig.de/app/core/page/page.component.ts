@@ -3,7 +3,7 @@ import {ActivatedRoute, Params, Router} from "@angular/router";
 import {Observable} from "rxjs/Observable";
 import {Subscription} from "rxjs/Subscription";
 import {environment} from "../../../environments/environment";
-import {PageService} from "ng-wordpress-services";
+import {PageService} from "ng-wordpress-templates";
 
 @Component({
     selector: 'app-page',

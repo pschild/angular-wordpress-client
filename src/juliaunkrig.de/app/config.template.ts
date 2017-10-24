@@ -1,4 +1,4 @@
-export default class Config {
+export class Config {
 
     static pageTitle: string = 'BLOG TITLE';
     static homePageName: string = 'SLUG OF HOME PAGE';

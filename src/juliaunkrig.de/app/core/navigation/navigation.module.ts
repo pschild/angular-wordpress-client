@@ -3,7 +3,6 @@ import {CommonModule} from '@angular/common';
 import {NavigationTreeComponent} from "./navigation-tree/navigation-tree.component";
 import {NavigationComponent} from "./navigation.component";
 import {AppRoutingModule} from "../../app-routing.module";
-import {NavigationService} from "ng-wordpress-services";
 
 @NgModule({
     imports: [
@@ -19,7 +18,6 @@ import {NavigationService} from "ng-wordpress-services";
         NavigationTreeComponent
     ],
     providers: [
-        NavigationService
     ]
 })
 export class NavigationModule {

@@ -7,22 +7,14 @@ import {HeaderComponent} from "./header/header.component";
 import {FormsModule} from "@angular/forms";
 import {environment} from "../../environments/environment";
 
-import {NGWT_CONFIG, NgwtConfig, TplGalleryModule, TplPostsModule, TplTextGalleryModule, TplTextMediaSliderModule, TplTextModule} from "ng-wordpress-templates";
-import {NGWS_CONFIG, NgwsConfig, NgWordpressServicesModule} from "ng-wordpress-services";
-
-export function ngwtConfigFactory(): NgwtConfig {
-    return {
-        apiUrl: environment.apiUrl,
-        staticSharerUrl: environment.staticSharerUrl
-    };
-}
-
-export function ngwsConfigFactory(): NgwsConfig {
-    return {
-        apiUrl: environment.apiUrl,
-        menuName: environment.menuName
-    };
-}
+import {
+    NgWordpressServicesModule,
+    TplGalleryModule,
+    TplPostsModule,
+    TplTextGalleryModule,
+    TplTextMediaSliderModule,
+    TplTextModule
+} from "ng-wordpress-templates";
 
 @NgModule({
     imports: [
@@ -31,13 +23,17 @@ export function ngwsConfigFactory(): NgwsConfig {
 
         NavigationModule,
 
-        NgWordpressServicesModule.forRoot(),
+        NgWordpressServicesModule.forRoot({
+            apiUrl: environment.apiUrl,
+            staticSharerUrl: environment.staticSharerUrl,
+            menuName: environment.menuName
+        }),
 
-        TplTextModule.forRoot(),
-        TplPostsModule.forRoot(),
-        TplTextGalleryModule.forRoot(),
-        TplTextMediaSliderModule.forRoot(),
-        TplGalleryModule.forRoot()
+        TplTextModule,
+        TplPostsModule,
+        TplTextGalleryModule,
+        TplTextMediaSliderModule,
+        TplGalleryModule
     ],
     declarations: [
         PostComponent,
@@ -50,14 +46,6 @@ export function ngwsConfigFactory(): NgwsConfig {
         HeaderComponent
     ],
     providers: [
-        {
-            provide: NGWT_CONFIG,
-            useFactory: ngwtConfigFactory
-        },
-        {
-            provide: NGWS_CONFIG,
-            useFactory: ngwsConfigFactory
-        }
     ]
 })
 export class CoreModule {

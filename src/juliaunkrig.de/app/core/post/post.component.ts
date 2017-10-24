@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs/Observable";
 import {ActivatedRoute, Params} from "@angular/router";
 import {Subscription} from "rxjs/Subscription";
-import {PostService} from "ng-wordpress-services";
+import {PostService} from "ng-wordpress-templates";
 
 @Component({
     selector: 'app-post',

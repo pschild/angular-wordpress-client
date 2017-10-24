@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs/Observable";
 import {KeyCode} from "../../enums/key-code.enum";
-import {NavigationService} from "ng-wordpress-services";
+import {NavigationService} from "ng-wordpress-templates";
 
 @Component({
     selector: 'app-navigation',
